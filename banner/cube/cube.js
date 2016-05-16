@@ -11,7 +11,7 @@ function Cube(options) {
   rotateTween = null,
 
   width = 300, 
-  height = 250, 
+  height = 250,
   isVertical = false, 
   autoRotate = true,
   autoRotateDelay = 5,
@@ -33,6 +33,7 @@ function Cube(options) {
   function parse(options) {
     width = options.width;
     height = options.height;
+    zIndex = options.zIndex;
     isVertical = options.vertical;
     autoRotate = options.autoRotate;
     autoRotateDelay = options.autoRotateDelay;

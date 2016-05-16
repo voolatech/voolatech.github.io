@@ -24,7 +24,7 @@
 			.cube .face iframe {
 			  border: none;
 			  margin: 0;
-			  pading: 0;
+			  padding: 0;
 			  overflow: hidden;
 			}
 			.cube .face * {
@@ -44,7 +44,9 @@
 			  backface-visibility: hidden;
 			  -webkit-backface-visibility: hidden;
 			}
-
+			.front, .right {
+				z-index: 10000;
+			}
 		</style>
 	</head>
 
