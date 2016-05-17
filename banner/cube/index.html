@@ -77,23 +77,26 @@
 	  <script src="cube.js"></script>
 	  
 	  <script>
+		
+			var w = document.documentElement.clientWidth;
+			var h = document.documentElement.clientHeight;
 			
 			new Cube({
-				width: 480,
-				height: 270,
+				width: w,
+				height: h,
 				vertical: false,
-				autoRotate: true,
+				autoRotate: false,
 				autoRotateDelay: 5,
 				autoRotateTime: 1,
 				autoRotateLeft: false,
 				autoRotateTop: false,
 				faces: [
-					{face: 'front', type: 'banner', link: 'https://placehold.it/480x270/ff00ff/ffffff', clickTag: 'http://www.google.com'},
-					{face: 'right', type: 'image', link: 'https://placehold.it/480x270/0000ff/ffffff', clickTag: 'http://www.facebook.com'},
+					{face: 'front', type: 'banner', link: 'https://placehold.it/' + w + 'x' + h + '/ff00ff/ffffff', clickTag: 'http://www.google.com'},
+					{face: 'right', type: 'image', link: 'https://placehold.it/' + w + 'x' + h + '/0000ff/ffffff', clickTag: 'http://www.facebook.com'},
 					{face: 'back', type: 'video', link: 'http://www.w3schools.com/html/mov_bbb.mp4', clickTag: 'http://www.twitter.com'},
-					{face: 'left', type: 'image', link: 'https://placehold.it/480x270/00FF00/ffffff', clickTag: 'http://www.instagram.com'},
-					{face: 'top', type: 'image', link: 'https://placehold.it/300x300', clickTag: 'http://www.flickr.com'},
-					{face: 'bottom', type: 'image', link: 'https://placehold.it/300x300', clickTag: 'http://www.yahoo.com'}
+					{face: 'left', type: 'image', link: 'https://placehold.it/' + w + 'x' + h + '/00FF00/ffffff', clickTag: 'http://www.instagram.com'},
+					{face: 'top', type: 'image', link: 'https://placehold.it/' + w + 'x' + w + '', clickTag: 'http://www.flickr.com'},
+					{face: 'bottom', type: 'image', link: 'https://placehold.it/' + w + 'x' + w + '', clickTag: 'http://www.yahoo.com'}
 				]
 			});
 	  </script>

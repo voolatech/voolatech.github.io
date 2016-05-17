@@ -1,0 +1,50 @@
+<html>
+	<head>
+	  <meta charset="UTF-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+	  <title>3D Cube Banner Embed</title> 
+	  
+	</head>
+
+	<body>
+		<div id="form">
+			Banner width:
+			<input id='bw' type="text" value="480"></input>
+			
+			Banner height:
+			<input id='bh' type="text" value="270" disabled></input>
+			
+			<input id='test' type="button" value="Generate"></input>
+		</div>
+		
+		<script>
+			var test = document.getElementById('test');
+			
+			var input = document.getElementById('bw');
+			
+			input.addEventListener('input', function()
+			{
+				document.getElementById('bh').value = input.value * 9 / 16;
+			});
+						
+			
+			test.onclick = function() {
+				var bw = document.getElementById('bw').value;
+				var bh = document.getElementById('bh').value;
+				
+				document.getElementById('form').style.display = 'none';
+				
+				var iframe = document.createElement('iframe');
+				iframe.src = 'index.html';
+				iframe.width = bw;
+				iframe.height = bh;
+				iframe.style.border = '1px solid black';
+				document.body.appendChild(iframe);
+			}
+		
+		</script>
+		<!--iframe src="index.html" width="480" height="270" style="border:1px solid black"></iframe-->
+	 
+	</body>
+</html>

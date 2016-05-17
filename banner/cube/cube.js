@@ -221,15 +221,15 @@ function Cube(options) {
             if (video) {
               
               var isPlay = face.getAttribute('data-play');
-
-              if (isPlay) {
-                if (clickTag) {
+			  if (isPlay == 1) {
+              if (clickTag) {
+				  face.setAttribute('data-play', 0);
                   window.open(clickTag, '_blank');
+				  video.pause();
                 }
               } else {
-                face.setAttribute('data-play', true);
-                video.play();
-                
+                face.setAttribute('data-play', 1);
+                video.play();                
               }
               return;
             }
