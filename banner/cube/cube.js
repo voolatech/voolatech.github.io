@@ -129,7 +129,7 @@ function Cube(options) {
     }, false);
 
     cube.addEventListener('click', function (evt) {
-      onClickCubeHandler(evt.clientX, evt.clientY, evt.path);
+		onClickCubeHandler(evt.clientX, evt.clientY, evt.target);
     }, false);
 
     window.addEventListener('mouseup', onMouseUpHandler, false);
@@ -196,53 +196,54 @@ function Cube(options) {
     }
   };
 
-  function onClickCubeHandler(x, y, path) {
+  function onClickCubeHandler(x, y, target) {
     if (currentPoint.x == x && currentPoint.y == y) {
 
-      var face;
-      for (var i = 0; i < path.length; i ++) {
-        face = path[i];
-        if (face.className.indexOf('face') != -1) {
+		var face = target;
+      
+		while(face) {
+			face = target.parentElement;
+			if (face.className.indexOf('face') != -1) {
           
-          var clickTag = face.getAttribute('data-clickTag');
-          var type = face.getAttribute('data-type');
-          
-          if (type.toLowerCase() == 'video') {
-            var video;
-            var children = face.children;
+			  var clickTag = face.getAttribute('data-clickTag');
+			  var type = face.getAttribute('data-type');
+			  
+			  if (type.toLowerCase() == 'video') {
+				var video;
+				var children = face.children;
 
-            for(var i = 0; i < children.length; i++){
-              if (children[i].tagName.toLowerCase() == "video") {
-                  video = children[i];
-                  break;
-              }
-            } 
+				for(var i = 0; i < children.length; i++){
+				  if (children[i].tagName.toLowerCase() == "video") {
+					  video = children[i];
+					  break;
+				  }
+				} 
 
-            if (video) {
-              
-              var isPlay = face.getAttribute('data-play');
-			  if (isPlay == 1) {
-              if (clickTag) {
-				  face.setAttribute('data-play', 0);
-                  window.open(clickTag, '_blank');
-				  video.pause();
-                }
-              } else {
-                face.setAttribute('data-play', 1);
-                video.play();                
-              }
-              return;
-            }
-          }
+				if (video) {
+				  
+				  var isPlay = face.getAttribute('data-play');
+				  if (isPlay == 1) {
+				  if (clickTag) {
+					  face.setAttribute('data-play', 0);
+					  window.open(clickTag, '_blank');
+					  video.pause();
+					}
+				  } else {
+					face.setAttribute('data-play', 1);
+					video.play();                
+				  }
+				  break;
+				}
+			  }
 
 
-          if (clickTag) {
-            window.open(clickTag, '_blank');
-          }
+			  if (clickTag) {
+				window.open(clickTag, '_blank');
+			  }
 
-          return;
-        }
-      }
+			  break;
+			}
+		}
     }
   };
 

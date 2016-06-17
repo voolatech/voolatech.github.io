@@ -29,7 +29,9 @@
 			});
 						
 			
-			test.onclick = function() {
+			test.addEventListener('click', function(evt) {
+				evt.preventDefault();
+				
 				var bw = document.getElementById('bw').value;
 				var bh = document.getElementById('bh').value;
 				
@@ -41,7 +43,7 @@
 				iframe.height = bh;
 				iframe.style.border = 'none';
 				document.body.appendChild(iframe);
-			}
+			});
 		
 		</script>
 		<!--iframe src="index.html" width="480" height="270" style="border:1px solid black"></iframe-->
