@@ -18,6 +18,9 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
 
         */
 
+        var skipTime = 5;
+        var skipInteral;
+
         var container = document.createElement('div');
         container.className = 'voola-vip-container';
         container.style.position = 'fixed';
@@ -48,7 +51,8 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         video.setAttribute('src', videoURL);
         video.setAttribute('width', '100%');
         video.setAttribute('height', '100%');
-        //video.setAttribute('autoPlay', true);
+        video.setAttribute('muted', true);
+        video.style.cursor = 'pointer';
         wrapper.appendChild(video);
 
         var ex = document.createElement('img');
@@ -56,16 +60,31 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         ex.style.position = 'absolute';
         ex.style.right = '-30px';
         ex.style.top = '0px';
+        ex.style.cursor = 'pointer';
         wrapper.appendChild(ex);
 
-        /*
         var mu = document.createElement('img');
-        mu.src = 'images/mute.png';
+        mu.src = mute;
         mu.style.position = 'absolute';
-        mu.style.left = '160px';
-        mu.style.top = '50px';
+        mu.style.right = '2px';
+        mu.style.bottom = '2px';
+        mu.style.cursor = 'pointer';
         wrapper.appendChild(mu);
-        */
+
+        var skip = document.createElement('div');
+        skip.innerHTML = 'Skip Ads After 5s';
+        skip.style.display = 'none';
+        skip.style.fontSize = '12px';
+        skip.style.color = 'white';
+        skip.style.width = '110px';
+        skip.style.height = '20px';
+        skip.style.background = 'black';
+        skip.style.position = 'absolute';
+        skip.style.left = '5px';
+        skip.style.bottom = '5px';
+        skip.style.textAlign = 'center';
+        skip.style.cursor = 'pointer';
+        wrapper.appendChild(skip);
 
         video.addEventListener('click', function(evt) {
             if (state == 1) {
@@ -73,7 +92,7 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
             }
 
             else if (state == 2) {
-                remove();
+                collapse();
 
                 var win = window.open(clicktag, '_blank');
                 win.focus();
@@ -85,17 +104,62 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
                 expandToMedium();
             }
 
+            else if (state == 1) {
+                expandToLarge();
+            }
+
             else {
-                remove();
+                collapseToMedium();
             }
         });
+
+        mu.addEventListener('click', function(evt) {
+            video.muted = !video.muted;
+            mu.src = video.muted ?  mute : unmute;
+        });
+
 
         window.addEventListener('scroll', onScrollHandler);
         
         function onScrollHandler(evt) {
-            if (document.body.scrollTop > 500) {
-                expandToMedium();
-            }
+            expandToMedium();
+        }
+
+        function onVideoEndedHandler(evt) {
+            //collapse();
+        }
+
+        function collapse() {
+            clearInterval(skipInteral);
+            skip.style.display = 'none';
+            skip.removeEventListener('click', onSkipAdsHandler);
+            
+            video.removeEventListener('ended', onVideoEndedHandler);
+
+            var preState = state;
+
+            state = 0;
+            video.pause();
+
+            var ratio = 10 * preState;
+            var width = 160 * preState;
+            var height = 90 * preState;
+
+            var interval = setInterval(function(evt) {
+                ratio -= 1;
+                    
+                container.style.width = width * ratio/(10 * preState) + 'px';
+                container.style.height = height * ratio/(10 * preState) + 'px';
+
+                if (ratio <= 0) {
+                    clearInterval(interval);
+                    wrapper.style.marginLeft = '-160px';
+                    container.style.width = '160px';
+                    container.style.height = '90px';
+                    ex.src = arrow;
+                }
+
+            }, 17);
         }
 
         function expandToMedium() {
@@ -110,14 +174,39 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
 
                 if (marginLeft >= 0) {
                     clearInterval(interval);
+                    video.addEventListener('ended', onVideoEndedHandler);
                     video.play();
-                    ex.src = close;
+
+                    runSkip();
                 }
             }, 17); 
         }
 
+        function collapseToMedium() {
+            state = 1;
+
+            var ratio = 20;
+            var width = 320;
+            var height = 180;
+
+            var interval = setInterval(function(evt) {
+                ratio -= 1;
+                    
+                container.style.width = width * ratio/20 + 'px';
+                container.style.height = height * ratio/20 + 'px';
+
+                if (ratio <= 10) {
+                    clearInterval(interval);
+                    ex.src = arrow;
+                }
+
+            }, 17);
+        }
+
         function expandToLarge() {
             state = 2;
+            video.currentTime = 0;
+            video.pause();
 
             var ratio = 1;
             var width = 160;
@@ -131,24 +220,39 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
 
                 if (ratio >= 2) {
                     clearInterval(interval);
+                    ex.src = close;
+                    video.addEventListener('ended', onVideoEndedHandler);
+                    video.play();
                 }
             }, 17);
         }
 
-        function remove() {
-            video.pause();
-            container.parentNode.removeChild(container);
+        function runSkip() {
+            skip.style.display = 'block';
+            
+            skipTime = 5;
+            skip.innerHTML = 'Skip Ads After ' + skipTime + 's';
+
+            skipInteral = setInterval(function() {
+                skipTime --;
+                skip.innerHTML = 'Skip Ads After ' + skipTime + 's';
+
+                if (skipTime == 0) {
+                    clearInterval(skipInteral);
+                    skip.innerHTML = 'Skip Ads';
+                    skip.addEventListener('click', onSkipAdsHandler);
+                }
+            }, 1000);
+
+        };
+
+        function onSkipAdsHandler(evt) {
+            collapse();
         }
 
-        /*
-        <!--div class="mini-pop-container">
-            <div id="mini-pop-wrapper" style="margin-left: -312px;">
-                <div class="mini-pop-bg"></div>
-                <video id="mini-pop-vid" src="http://cdn-video.adspruce.com/website/video-in-page-diesel.mp4" style="display: none;"></video>
-                <div id="mini-pop-tab" style="background-image: url(&quot;http://32808eb254d4d3a338bf-2b96655e783eed0674def440d206be58.r48.cf3.rackcdn.com/new-assets/collapse.png&quot;);"></div>
-                <div id="mini-pop-mute" style="display: none; background-image: url(&quot;http://32808eb254d4d3a338bf-2b96655e783eed0674def440d206be58.r48.cf3.rackcdn.com/new-assets/mute.png&quot;);"></div>
-            </div>
-        </div-->
-        */
+        function remove() {
+            //video.pause();
+            //container.parentNode.removeChild(container);
+        }
     };
 };
