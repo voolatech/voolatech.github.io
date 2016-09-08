@@ -48,6 +48,7 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         video.setAttribute('height', '100%');
         video.setAttribute('muted', true);
         video.setAttribute('webkit-playsinline', '');
+        video.setAttribute('preload', 'auto');
         video.style.cursor = 'pointer';
         wrapper.appendChild(video);
 
