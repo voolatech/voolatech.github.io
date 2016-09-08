@@ -170,13 +170,15 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
 
                 if (marginLeft >= 0) {
                     clearInterval(interval);
-                    video.addEventListener('ended', onVideoEndedHandler);
-                    makeVideoPlayableInline(video);
-                    video.play();
-
-                    runSkip();
+                    
                 }
             }, 17); 
+
+            video.addEventListener('ended', onVideoEndedHandler);
+            makeVideoPlayableInline(video);
+            video.play();
+
+            runSkip();
         }
 
         function collapseToMedium() {
@@ -218,11 +220,13 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
                 if (ratio >= 2) {
                     clearInterval(interval);
                     ex.src = close;
-                    video.addEventListener('ended', onVideoEndedHandler);
-                    makeVideoPlayableInline(video);
-                    video.play();
+                    
                 }
             }, 17);
+
+            video.addEventListener('ended', onVideoEndedHandler);
+            makeVideoPlayableInline(video);
+            video.play();
         }
 
         function runSkip() {
