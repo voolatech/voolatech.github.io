@@ -47,6 +47,7 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         video.setAttribute('src', videoURL);
         video.setAttribute('width', '100%');
         video.setAttribute('height', '100%');
+        video.setAttribute('type', 'video/mp4');
         video.setAttribute('muted', true);
         video.setAttribute('webkit-playsinline', '');
         video.setAttribute('preload', 'auto');
@@ -132,6 +133,7 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         window.addEventListener('scroll', onScrollHandler);
         
         function onScrollHandler(evt) {
+            video.load();
             expandToMedium();
         }
 
