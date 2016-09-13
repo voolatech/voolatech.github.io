@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)http://adspruce.com/advertisers/video-in-page -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Video In-Page</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no">
+    <meta name="description" content="Video In-Page is a non-interruptive, user-friendly ad experience.">
+    <meta name="keywords" content="advert, adverts, banners, video banner, advertising, high-visibility, mobile, ad spot,">
+    <meta name="DC.title" content="The Mobile Video Advertising Platform">
+    <meta name="geo.region" content="GB-HCK">
+    <meta name="geo.placename" content="London">
+    <meta name="geo.position" content="51.522651;-0.085768">
+    <meta name="ICBM" content="51.522651, -0.085768">
+
+
+    <!-- Style Sheets -->
+    <link href="./vip_files/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="./vip_files/icon" rel="stylesheet">
+    <link href="./vip_files/font-awesome.min.css" rel="stylesheet">
+    <link href="./vip_files/css" rel="stylesheet" type="text/css">
+
+
+    <!-- Favicon -->
+    <link href="http://adspruce.com/ico/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+    <link rel="shortcut icon" href="http://adspruce.com/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://adspruce.com/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://adspruce.com/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://adspruce.com/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="http://adspruce.com/ico/apple-touch-icon-57-precomposed.png">
+
+    <!--  Scripts-->
+
+    <script async="" src="./vip_files/analytics.js"></script><script src="./vip_files/jquery-2.1.1.min.js"></script>
+<script src="./vip_files/materialize.min.js"></script>
+<script src="./vip_files/main.min.js"></script>
+<script src="./vip_files/showads.js"></script>
+<script src="./vip_files/dropUp.min.js"></script><script type="text/javascript">
+
+    $(document).ready(function () {
+        $('.modal-trigger').leanModal();
+        $(".button-collapse").sideNav();
+        $('.slider').slider();
+        $('.carousel').carousel();
+
+        function setBlur () {
+            $('.carousel-item').each(function(){
+
+                var z = parseInt($(this).css('z-index'));
+
+                if(z === -1) {
+                    $(this).css({"-webkit-filter":"blur(1px)","-moz-filter":"blur(1px)", "filter":"blur(1px)"});
+                }else if(z === -2) {
+                    $(this).css({"-webkit-filter":"blur(2px)","-moz-filter":"blur(2px)", "filter":"blur(2px)"});
+                }else{
+                    $(this).css({"-webkit-filter":"blur(0px)","-moz-filter":"blur(0px)", "filter":"blur(0px)"});
+                }
+            });
+        }
+
+        var blocktimer = setInterval(function() {
+            $('.carousel').carousel('next');
+            setTimeout(setBlur,300);
+        }, 7000);
+
+        $('.carousel-item').on('click', function(){
+            clearInterval(blocktimer);
+            setTimeout(setBlur,300);
+        });
+
+        setBlur();
+        $('ul.tabs').tabs();
+        // Initialize collapsible
+        $('.collapsible').collapsible();
+        $('.tooltipped').tooltip({"delay": 50});
+        $('select').material_select();
+        $('.dropdown-button').dropdown({
+                inDuration: 300,
+                outDuration: 225,
+                constrain_width: true, // Does not change width of dropdown to that of the activator
+                hover: false
+            }
+        );
+
+        // Check if an ad blocker is detected:
+        if (window.canRunAds === undefined) {
+            showAdBlockerWarning();
+        }
+    });
+
+    function showAdBlockerWarning() {
+        $('#blocker-warning-modal').openModal();
+    }
+
+</script>
+<script src="./vip_files/wow.min.js"></script>
+<script>
+    var wow = new WOW(
+        {
+            boxClass: 'animation-adspruce',      // animated element css class (default is wow)
+            animateClass: 'animated', // animation css class (default is animated)
+            offset: 150,          // distance to the element when triggering the animation (default is 0)
+            mobile: false,       // trigger animations on mobile devices (default is true)
+            live: true,       // act on asynchronously loaded content (default is true)
+            callback: function (box) {
+                // the callback is fired every time an animation is started
+                // the argument that is passed in is the DOM node being animated
+
+            }
+        }
+    );
+    wow.init();
+</script>
+    
+        
+</head>
+<body>
+
+<nav>
+    <div class="nav-wrapper">
+        <div class="container">
+            <a href="http://adspruce.com/" class="brand-logo"><span>AdSpruce</span></a>
+            <ul id="nav-mobile" class="right side-nav collapsible collapsible-accordion" style="left: -250px;">
+                <li><a href="http://adspruce.com/advertisers" title="Advertise">Advertise</a></li>
+                <li><a href="http://adspruce.com/publishers" title="Monetise">Monetise</a></li>
+                <li><a href="http://adspruce.com/mobile-video-ad-serving" title="Ad Server">Ad Server </a></li>
+                <li class="no-padding">
+                    <div class="collapsible-header">Ad Formats<i class="mdi-navigation-arrow-drop-down"></i></div>
+                    <div class="collapsible-body" style="">
+                        <ul>
+                            <li><a href="http://adspruce.com/advertisers/pre-roll-video-advertising" title="Pre-Roll">Pre-Roll</a></li>
+                            <li><a href="http://adspruce.com/advertisers/outstream-video-advertising" title="Outstream Video Advertising">Outstream Video Advertising</a></li>
+                            <li><a href="http://adspruce.com/advertisers/video-in-banner" title="Video Banner">Video In-Banner</a></li>
+                            <li><a href="http://adspruce.com/advertisers/video-in-page" title="G-Spot">Video In-Page</a></li>
+                            <li><a href="http://adspruce.com/advertisers/full-page-takeover" title="Full-Page Takeover">Full-Page Takeover</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="no-padding">
+                    <div class="collapsible-header">Technology<i class="mdi-navigation-arrow-drop-down"></i></div>
+                    <div class="collapsible-body" style="">
+                        <ul>
+                            <li><a href="http://adspruce.com/technology/adspruce-adk" title="AdSpruce ADK">AdSpruce ADK</a></li>
+                            <li><a href="http://adspruce.com/technology/any-screen-lander" title="AnyScreen Lander">AnyScreen Lander</a></li>
+                            <li><a href="http://adspruce.com/technology/hot-analytics" title="Hot Analytics">Hot Analytics</a></li>
+                            <li><a href="http://adspruce.com/technology/html5-ad-studio" title="HTML5 Ad Studio">HTML5 Ad Studio</a></li>
+                            <li><a href="http://adspruce.com/technology/i-endcard" title="iEndCard">iEndCard</a></li>
+                            <li><a href="http://adspruce.com/technology/videodax" title="VideoDax">VideoDax</a></li>
+                            <li><a href="http://adspruce.com/technology/videoserve" title="VideoServe">VideoServe</a></li>
+                            <li><a href="http://adspruce.com/technology/viewability" title="Viewability">Viewability</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="http://adspruce.com/contact-adspruce" title="Contact">Contact</a></li>
+                <li><a href="http://adspruce.com/login" title="Log in" target="_blank" class="login-nav">Log in</a></li>
+            </ul>
+            <!-- Include this line below -->
+            <a class="button-collapse" href="http://adspruce.com/advertisers/video-in-page#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+            <!-- End -->
+
+        </div>
+    </div>
+</nav>
+<div class="fixed-bg ad-formats g-spot align-middle">
+    <div class="container">
+        <div class="intro ad-formats animation-adspruce fadeInUp animated" data-wow-duration="1s" data-wow-delay="0s" style="visibility: visible; animation-duration: 1s; animation-delay: 0s; animation-name: fadeInUp;">
+            <h1>Video in Page</h1>
+            <h2>A non-interruptive, user-friendly ad experience</h2>
+        </div><!-- .intro -->
+                    <div class="phone-holder-player">
+                <div class="phone-holder">
+                    <div class="video-wrapper">
+                        <video poster="/images/phones/video-in-page-poster.png" id="videoPlayer1" class="videoPlayer stop-vp">
+                            <source src="http://cdn-video.adspruce.com/website/advertisers-videoinpage-hd.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div><!-- .video-wrapper -->
+                </div><!-- .phone-holder -->
+            </div><!-- .phone-holder-player .landscape -->
+            <a href="http://cdn-video.adspruce.com/website/advertisers-videoinpage-hd.mp4" title="See How Video In Page Works" class="yellow darken-4 btn-large mobile-btn-desktop waves-effect waves-light center">See How it Works</a>
+            <a class="btnPlay btn-floating btn-large waves-effect waves-light pink tooltipped" data-position="top" data-tooltip="Replay Video" data-tooltip-id="a3a766eb-5ee6-8c4e-e8c0-1974004e4429" style="opacity: 1; display: block;"><i class="mdi-av-play-arrow"></i></a>
+            </div><!-- .container -->
+</div><!-- .fixed-bg .video-banner -->
+
+<div id="first-block" class="row main animation-adspruce fadeIn animated" data-wow-duration="1s" data-wow-delay="0.3s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s; animation-name: fadeIn;">
+    <div class="col s12 m12 l12">
+        <div class="container">
+            <div class="content">
+                <h2>User-friendly advertising on premium publishers</h2>
+                <p>Bigger isn’t always better. Create user-conscious ad campaigns that drive brand
+                    messaging, views and clicks through responsible, non-intrusive advertising.</p>
+            </div><!-- .content -->
+        </div><!-- .container -->
+    </div><!-- col s12 m12 l12 -->
+</div><!-- #first-block .row .main -->
+
+<div id="second-block" class="g-spot-block main row">
+    <div class="col no-pad s12 m12 l12">
+        <div class="col no-pad s12 m12 l6 centerer-image g-spot-mobile-fix">
+
+                            <div class="mini-pop-div">
+                    <div class="mini-pop-container">
+                        <div id="mini-pop-wrapper" style="margin-left: -1px;">
+                            <div class="mini-pop-bg"></div>
+                            <video id="mini-pop-vid" src="http://cdn-video.adspruce.com/website/video-in-page-diesel.mp4"></video>
+                            <div id="mini-pop-tab" style="background-image: url(&quot;http://32808eb254d4d3a338bf-2b96655e783eed0674def440d206be58.r48.cf3.rackcdn.com/new-assets/collapse.png&quot;);"></div>
+                            <div id="mini-pop-mute"></div>
+                        </div>
+                    </div>
+                </div>
+            
+        </div><!-- col s12 m12 l6 -->
+        <div class="col s12 m12 l6">
+            <div class="centerer-text how-intro left animation-adspruce fadeIn animated" data-wow-duration="1s" data-wow-delay="0s" style="visibility: visible; animation-duration: 1s; animation-delay: 0s; animation-name: fadeIn;">
+                <h2>How it works</h2>
+                <p>When a user visits one of the many sites within the AdSpruce Publisher Network, your video slides
+                into view, overlaying the content of the page. When the video is completed, the player is replaced
+                with a click-through banner that allows users to further engage with your advert.</p>
+
+                <p>Closable at any time, this lightweight, ultra-quick ad spot gives users the power to choose the
+                 level at which they want to interact with your brand, providing you with only the most qualified
+                 clicks and views. </p>
+            </div><!-- .centerer-text -->
+        </div><!-- col s12 m12 l6 -->
+    </div><!-- col s12 m12 l12 -->
+</div><!-- #second-block -->
+
+<div id="third-block" class="row">
+    <div class="col no-pad s12 m12 ls12 lx6 right-col">
+        <div class="centerer-image img-container">
+            <img src="./vip_files/mini-pop-benifits.jpg" alt="Enhanced Mobile Video Advertising User-Experience" title="Enhanced Mobile Video Advertising User-Experience" class="image-large bottom">
+        </div><!-- .img-container -->
+    </div><!-- .right-col -->
+    <div class="col s12 m12 ls12 lx6">
+        <div class="centerer-text benefits right-col animation-adspruce fadeIn" data-wow-duration="1s" data-wow-delay="0s" style="margin-top: 79px; visibility: hidden; animation-duration: 1s; animation-delay: 0s; animation-name: none;">
+            <h2>The benefits</h2>
+            <ul class="benefits g-spot">
+                <li>User-conscious advertising</li>
+                <li>Low data footprint</li>
+                <li>AdSpruce is the only provider to offer genuine in-line autoplay video on iOS devices</li>
+                <li>Superior device compatibility</li>
+            </ul><!-- .benefits -->
+        </div><!-- .centerer-text -->
+    </div><!-- col s12 m12 ls12 lx6 -->
+</div><!-- #fourth-block -->
+
+<div id="fourth-block" class="grey lighten-3 row">
+    <div class="container main">
+        <h2 class="sub-main animation-adspruce fadeInUp" data-wow-duration="1s" data-wow-delay="0s" style="visibility: hidden; animation-duration: 1s; animation-delay: 0s; animation-name: none;">Previous G-Spot campaigns</h2>
+        <div class="row">
+            <div id="campaigns-view" class="flexbox-holder"><div class="col s12 m6 l4"><div class="card clients"><div class="card-image"><img src="./vip_files/diesel.png" alt="Diesel Loverdose Red Kiss" title="Diesel Loverdose Red Kiss"><div class="card-title"><h3>Diesel</h3></div><div class="card-title sub"><h4>Loverdose Red Kiss</h4></div></div><div class="card-content"><h5>Industry</h5><p class="filter-industry">Beauty and Fashion</p><h5>Ad Format</h5><p class="filter-ad-format">G-Spot</p><h5>Country / Region</h5><p class="filter-country">United Kingdom</p><h5>Target Audience</h5><p class="filter-audience">18-24</p><h5>Platform</h5><p class="truncate filter-platform" title="Android Phone &amp; iPhone">Android Phone &amp; iPhone</p></div><div class="card-action"><a class="watch-video-action" href="http://cdn-video.adspruce.com/demo/lvb-loverdose.mp4" data-desktop-url="http://cdn-video.adspruce.com/demo/lvb-loverdose.mp4">View Advert</a></div></div></div><div class="col s12 m6 l4"><div class="card clients"><div class="card-image"><img src="./vip_files/subway.png" alt="Subway Big Eat" title="Subway Big Eat"><div class="card-title"><h3>Subway</h3></div><div class="card-title sub"><h4>Subway Big Eat</h4></div></div><div class="card-content"><h5>Industry</h5><p class="filter-industry">Food and Drink</p><h5>Ad Format</h5><p class="filter-ad-format">G-Spot</p><h5>Country / Region</h5><p class="filter-country">United States</p><h5>Target Audience</h5><p class="filter-audience">15-65</p><h5>Platform</h5><p class="truncate filter-platform" title="Android Phone &amp; iPhone">Android Phone &amp; iPhone</p></div><div class="card-action"><a class="watch-video-action" href="http://cdn-video.adspruce.com/demo/lvb-subway.mp4" data-desktop-url="http://cdn-video.adspruce.com/demo/lvb-subway.mp4">View Advert</a></div></div></div><div class="col s12 m6 l4"><div class="card clients"><div class="card-image"><img src="./vip_files/reeses.png" alt="Reeses Peanut Butter Cups" title="Reeses Peanut Butter Cups"><div class="card-title"><h3>Reeses</h3></div><div class="card-title sub"><h4>Peanut Butter Cups</h4></div></div><div class="card-content"><h5>Industry</h5><p class="filter-industry">Food and Drink</p><h5>Ad Format</h5><p class="filter-ad-format">G-Spot</p><h5>Country / Region</h5><p class="filter-country">United Kingdom</p><h5>Target Audience</h5><p class="filter-audience">15-35</p><h5>Platform</h5><p class="truncate filter-platform" title="Android Phone &amp; iPhone">Android Phone &amp; iPhone</p></div><div class="card-action"><a class="watch-video-action" href="http://cdn-video.adspruce.com/demo/lvb-reeses.mp4" data-desktop-url="http://cdn-video.adspruce.com/demo/lvb-reeses.mp4">View Advert</a></div></div></div></div>
+
+            <div id="no-campaigns" class="col s12 animation-adspruce fadeIn animated" data-wow-duration="1s" data-wow-delay="0.1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeIn;">
+                <div class="card grey darken-2">
+                    <div class="card-content white-text">
+                        <span class="card-title">No Campaigns Available</span>
+                        <p>There are currently no campaigns available for this ad format.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="fourth-block" class="row">
+    <a href="http://adspruce.com/our-video-advertising-clients" title="View AdSpruce&#39;s Successful Video Banner Mobile Advertising Campaigns" class="col center waves-effect waves-light big-link g-spot-block s12 m12 l12">
+        <h2>
+            See our previous campaigns
+            <i class="fa fa-chevron-circle-right"></i>
+        </h2>
+        <p>Learn what AdSpruce can do for you</p>
+    </a>
+</div><!-- #sixth-block -->
+
+<div id="fifth-block" class="fixed-bg g-spot bottom">
+    <div class="container">
+        <div class="intro">
+            <div class="animation-adspruce fadeInUp" data-wow-duration="1s" data-wow-delay="0s" style="visibility: hidden; animation-duration: 1s; animation-delay: 0s; animation-name: none;">
+                <img src="./vip_files/adspruce-icon.png" alt="Adspruce – Mobile Web Monetisation Platform" title="Adspruce – Mobile Web Monetisation Platform" class="ad-logo">
+                <h3 class="started">Get started</h3>
+            </div>
+            <h4 class="started animation-adspruce fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s" style="visibility: hidden; animation-duration: 1s; animation-delay: 0.1s; animation-name: none;">AdSpruce delivers high-quality, interactive video ads to more devices than any other ad network on the mobile web.</h4>
+            <div class="row">
+                <div class="col s12 m6 offset-l3 l3 animation-adspruce fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: hidden; animation-duration: 1s; animation-delay: 0.2s; animation-name: none;">
+                    <a href="http://adspruce.com/contact-adspruce" title="Advertiser With AdSpruce" class="g-spot-btn waves-effect waves-light btn-large started">Advertisers</a>
+                </div><!-- col s12 m6 l3 -->
+                <div class="col s12 m6 l3 animation-adspruce fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s" style="visibility: hidden; animation-duration: 1s; animation-delay: 0.2s; animation-name: none;">
+                    <a href="http://adspruce.com/publishers" title="Sign Up As A Publisher" class="g-spot-btn accent-4 waves-effect waves-light btn-large started">Publishers</a>
+                </div><!-- col s12 m6 l3 -->
+            </div><!-- .row -->
+        </div><!-- .intro -->
+    </div><!-- .container -->
+</div><!-- #seventh-block -->
+
+<div id="seventh-block" class="row">
+    <a href="http://adspruce.com/advertisers/video-in-banner" title="View AdSpruce&#39;s Pre-Roll Ad Format" class="col waves-effect waves-light big-link g-spot-light s6 m6 l6">
+        <div class="ad-links-holder">
+            <i class="small mdi-navigation-arrow-back"></i>
+            <div class="ad-links">
+                <span>Previous ad format</span>
+                Video In-Banner
+            </div><!-- .ad-links -->
+        </div><!-- .ad-links-holder -->
+    </a><!-- .right-col -->
+    <a href="http://adspruce.com/advertisers/full-page-takeover" title="View AdSpruce&#39;s Video Banner Ad Format" class="col waves-effect waves-light big-link g-spot-light-2 s6 m6 l6">
+        <div class="ad-links-holder left">
+            <i class="small mdi-navigation-arrow-forward"></i>
+            <div class="ad-links right">
+                <span>Next ad format</span>
+                Full Page Takeover
+            </div><!-- .ad-links -->
+        </div><!-- .ad-links-holder -->
+    </a>
+</div><!-- #eighth-block -->
+
+<!-- Dropdown Trigger -->
+<a class="dropdown-button btn-floating btn-large waves-effect waves-light pink float tooltipped" data-position="left" data-tooltip="Navigate Page" href="http://adspruce.com/advertisers/video-in-page#" data-activates="dropdown-sub" data-tooltip-id="14d2c068-ec88-4b51-a6b6-5681af1c93bc"><i class="mdi-content-add"></i></a><ul id="dropdown-sub" class="dropdown-content four-items-drop" style="top: 626px;">
+    <li><a class="first-block-link" title="Video Banner Introduction">Introduction</a></li>
+    <li><a class="second-block-link" title="How Video Banner Work">How It Works</a></li>
+    <li><a class="third-block-link" title="Benefits Of Large Video Banner">Benefits</a></li>
+    <li class="last"><a class="fifth-block-link" title="Get Started With AdSpruce">Get Started</a></li>
+</ul>
+
+<!-- Dropdown Structure -->
+
+
+<!-- Modal Structure -->
+<div id="video-modal" class="modal modal-fixed-footer">
+    <div class="modal-content" style="text-align:center">
+        <video id="modal-video-player" class="responsive-video"></video>
+    </div>
+    <div class="modal-footer">
+        <div class="btn-flat video-btn modal-action modal-close">Close</div>
+    </div>
+</div>
+
+<script>
+    function VideoStatus(){var i=document.querySelector("#videoPlayer1");i.muted=true;window.innerWidth<767?i.pause():(i.autoplay=!0,i.load(),i.onended=function(){i.load(),i.pause(),$(".btnPlay").fadeTo(1e3,1).css("display","block"),$(".btnPlay .fa").fadeTo(1e3,1).css("display","block")},$(".btnPlay").click(function(){return i.play&&(i.play(),$(".btnPlay").fadeOut(1e3,0),$(".btnPlay .fa").fadeOut(1e3,0)),!1}))}window.onload=VideoStatus,$(function(){$(window).bind("resize",function(){var i=document.querySelector("#videoPlayer1");$(".btnPlay")[0].onclick=function(){i.play(),$(".btnPlay").fadeOut(100,0),$(".btnPlay .fa").fadeOut(100,0)},$(this).width()<767?($(".btnPlay").fadeOut(100,0),$(".btnPlay .fa").fadeOut(100,0),i.pause()):($(".btnPlay").fadeTo(100,1).css("display","block"),$(".btnPlay .fa").fadeTo(100,1).css("display","block"),i.pause())})});var isVisible=function(i){var e,n,t=window.innerHeight,a=window.innerWidth,d=window.pageYOffset,o=window.pageXOffset,l=i.clientHeight,p=i.clientWidth;return e=i.parentNode.parentNode.parentNode.parentNode.offsetLeft+i.offsetLeft,n=i.parentNode.parentNode.parentNode.parentNode.offsetTop+i.offsetTop,n+l>d&&n+l-d>=.7*l&&d+t>n&&d+t-n>=.7*l&&e+p>o&&e+p-o>=.7*p&&o+a>e&&o+a-e>=.7*p},minivid=$("#mini-pop-vid")[0],miniwrap=$("#mini-pop-wrapper")[0],minitab=$("#mini-pop-tab")[0],minimute=$("#mini-pop-mute")[0],lasttype="";miniwrap.style.marginLeft="-312px",minivid.muted=!0,minivid.addEventListener("ended",function(){minipopAnimate("full")});var minipopAnimate=function(i){var e,n,t,a=parseInt(miniwrap.style.marginLeft),d=a,o=6,l=33;return"partial"===i?(e=-272,n=function(){minitab.style.backgroundImage='url("http://32808eb254d4d3a338bf-2b96655e783eed0674def440d206be58.r48.cf3.rackcdn.com/new-assets/expand.png")'}):"full"===i||"video"===i?(e=-1,n=function(){minitab.style.backgroundImage='url("http://32808eb254d4d3a338bf-2b96655e783eed0674def440d206be58.r48.cf3.rackcdn.com/new-assets/collapse.png")',"full"===i?(minivid.style.display="none",minimute.style.display="none",setTimeout(function(){minipopAnimate("hide")},1e4)):"video"===i&&"none"!==minivid.style.display&&minivid.play()}):"hide"===i&&(e=-312),a===e&&i===lasttype?!0:(a>e&&(o=-1*o),lasttype=i,void(t=setInterval(function(){0>o&&e>d+o||o>0&&d+o>e?(miniwrap.style.marginLeft=e+"px",clearInterval(t),"function"==typeof n&&n()):(d+=o,miniwrap.style.marginLeft=d+"px")},l)))};minipopAnimate("partial");var myVisibleTimer=setInterval(function(){isVisible(minivid)&&0===minivid.currentTime&&"video"!==lasttype?minipopAnimate("video"):isVisible(minivid)&&minivid.paused===!0&&"none"!==minivid.style.display?minivid.play():isVisible(minivid)||minivid.pause()},250);minitab.onclick=function(){minipopAnimate("video"===lasttype||"full"===lasttype?"partial":"video")},minimute.onclick=function(){minivid.muted===!0?(minivid.muted=!1,minimute.style.backgroundImage='url("http://32808eb254d4d3a338bf-2b96655e783eed0674def440d206be58.r48.cf3.rackcdn.com/new-assets/unmute.png")'):(minivid.muted=!0,minimute.style.backgroundImage='url("http://32808eb254d4d3a338bf-2b96655e783eed0674def440d206be58.r48.cf3.rackcdn.com/new-assets/mute.png")')};function loadCampaigns(){$.ajax({url:"/ajax/get-gspot-case-studies",type:"GET",async:!1,success:function(i){var e=JSON.parse(i);if(e.result===!1)return $("#no-campaigns").show(),!1;var n="";for(var t in e)n+='<div class="col s12 m6 l4"><div class="card clients"><div class="card-image"><img src="'+e[t].image_url+'" alt="'+e[t].image_title+'" title="'+e[t].image_title+'"/><div class="card-title"><h3>'+e[t].advertiser_name+'</h3></div><div class="card-title sub"><h4>'+e[t].title+'</h4></div></div><div class="card-content"><h5>Industry</h5><p class="filter-industry">'+e[t].industry+'</p><h5>Ad Format</h5><p class="filter-ad-format">'+e[t].advert_format+'</p><h5>Country / Region</h5><p class="filter-country">'+e[t].country+'</p><h5>Target Audience</h5><p class="filter-audience">'+e[t].target_audience_lower+"-"+e[t].target_audience_upper+'</p><h5>Platform</h5><p class="truncate filter-platform" title="'+e[t].platform+'">'+e[t].platform+'</p></div><div class="card-action"><a class="watch-video-action" href="'+e[t].advert_mobile_url+'" data-desktop-url="'+e[t].advert_desktop_url+'">View Advert</a></div></div></div>';$("#campaigns-view").html(n)}})}var isMobile=!1,isTablet=!1;$(document).ready(function(){loadCampaigns()}),$("#campaigns-view").on("click",".watch-video-action",function(i){var e=$(this).data("desktop-url");if(!isMobile&&!isTablet){i.preventDefault();var n=document.getElementById("modal-video-player");$("#modal-video-player").html('<source src="'+e+'" type="video/mp4"> Your browser does not support this type of video.'),n.load(),n.play(),$("#video-modal").openModal()}}),$(".modal-close").on("click",function(){var i=document.getElementById("modal-video-player");i.pause()});</script>
+
+<footer class="grey darken-2">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 m12 s12 footer-about">
+                <h5 class="white-text">About AdSpruce</h5>
+                <p class="grey-text text-lighten-4">AdSpruce is the leading programmatic video advertising Supply
+                    Side Platform (SSP) on the mobile web dedicated to helping publishers maximize the value of
+                    their inventory through high-performance video ad formats and direct sales to brands and
+                    agencies. Our ad server can deliver video to more devices than anyone else and we own our
+                    whole technology stack enabling us to deliver industry-leading ad experiences, targeting,
+                    tracking, security and ad spot controls to customers. </p>
+            </div><!-- .col l6 s12 -->
+            <div class="col l6 s12">
+                <h5 class="white-text">Browse Pages</h5>
+                <ul class="col s12 m4 no-pad browse-links">
+                    <span class="white-text nav-subheading">Publishers</span>
+                    <li><a class="white-text" href="http://adspruce.com/technology/adspruce-adk" title="Ads Development Kit (ADK)">Ads Development Kit</a></li>
+                    <li><a class="white-text" href="http://adspruce.com/publishers" title="Monetisation">Monetisation</a></li>
+                    <li><a class="white-text" href="http://adspruce.com/technology/html5-ad-studio" title="HTML5 Ad Studio">HTML5 Ad Studio</a></li>
+                    <li><a class="white-text" href="http://adspruce.com/html5-game-monetisation" title="HTML5 Game Monetisation">HTML5 Game Monetisation</a></li>
+                </ul><!-- .browse-links -->
+                <ul class="col s12 m4 no-pad browse-links">
+                    <span class="white-text nav-subheading">Advertisers</span>
+                    <li><a class="white-text" href="http://adspruce.com/mobile-video-ad-serving" title="Ad Server">Ad Server</a></li>
+                    <li><a class="white-text" href="http://adspruce.com/technology/i-endcard" title="iEndCard">iEndCard</a></li>
+                    <li><a class="white-text" href="http://adspruce.com/technology/any-screen-lander" title="AnyScreen Lander">AnyScreen Lander</a></li>
+                    <li><a class="white-text" href="http://adspruce.com/technology/viewability" title="Viewability">Viewability</a></li>
+                    <li><a class="white-text" href="http://adspruce.com/technology/videodax" title="VideoDax">VideoDax</a></li>
+                    <li><a class="white-text" href="http://adspruce.com/technology/hot-analytics" title="Hot Analytics">Hot Analytics</a></li>
+                </ul><!-- .browse-links -->
+                <ul class="col s12 m4 no-pad browse-links">
+                    <span class="white-text nav-subheading">Company</span>
+                    <li><a class="white-text" href="http://adspruce.com/about-adspruce" title="About AdSpruce">About</a></li>
+                    <li><a class="white-text" href="http://adspruce.com/adspruce-press-kit" title="Press Room">Press Room</a></li>
+                    <li><a class="white-text" href="http://adspruce.com/our-video-advertising-clients" title="Previous Campaigns">Previous Campaigns</a></li>
+                    <li><a class="white-text" href="http://adspruce.com/advertising-marketing-industry-whitepapers" title="Industry Whitepapers">Industry Whitepapers</a></li>
+                    <li><a class="white-text" href="http://adspruce.com/video-advertising-careers" title="Video Advertising Careers">Video Advertising Careers</a></li>
+                </ul><!-- .browse-links -->
+            </div><!-- .col l6 s12 -->
+        </div><!-- .row -->
+    </div><!-- .container -->
+    <div class="footer-copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12 l6 footer-link-holder">
+                    <a class="footer-link" href="http://adspruce.com/advertiser-terms" title="Advertiser Terms">Advertiser Terms</a>
+                    <a class="footer-link" href="http://adspruce.com/publisher-terms" title="Publisher Terms">Publisher Terms</a>
+                    <a class="footer-link" href="http://adspruce.com/sitemap" title="Sitemap">Sitemap</a>
+                </div><!-- .footer-link-holder -->
+                <div class="col s12 m12 offset-l3 l3 social-media">
+                    <a href="http://www.facebook.com/pages/Ad-Spruce/436907619716207" title="Adspruce Facebook" target="_blank" class="tooltipped" data-position="top" data-tooltip="Facebook" data-tooltip-id="b25a95c8-8708-e2b4-96c5-809d43ec4bfe"><i class="fa fa-facebook"></i><span class="none">AdSpruce Facebook</span></a>
+                    <a href="http://twitter.com/AdSpruce" title="Adspruce Twitter" target="_blank" class="tooltipped" data-position="top" data-tooltip="Twitter" data-tooltip-id="f36109fd-ec1c-a948-6280-5e81e9f8bf17"><i class="fa fa-twitter"></i><span class="none">Adspruce Twitter</span></a>
+                    <a href="https://plus.google.com/+AdSpruce" title="Adspruce Google+" rel="publisher" target="_blank" class="tooltipped" data-position="top" data-tooltip="Google+" data-tooltip-id="a868df52-29b2-21ac-fe47-939e11666c69"><i class="fa fa-google"></i><span class="none">Adspruce Google+r</span></a>
+                    <a href="http://www.linkedin.com/company/ad-spruce" title="Adspruce LinkedIn" target="_blank" class="tooltipped" data-position="top" data-tooltip="LinkedIn" data-tooltip-id="90022b6f-a0c9-c3e7-6cf8-82842b3051be"><i class="fa fa-linkedin"></i><span class="none">Adspruce LinkedIn</span></a>
+                    <a href="http://pinterest.com/adspruce/" title="Adspruce Pinterest" target="_blank" class="tooltipped" data-position="top" data-tooltip="Pinterest" data-tooltip-id="de1ca65a-ccae-f333-fbb1-ca6311be5a89"><i class="fa fa-pinterest"></i><span class="none">Adspruce Pinterest</span></a>
+                </div><!-- .social-media -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div><!-- .footer-copyright -->
+</footer><!-- .grey darken-2 -->
+
+<div id="blocker-warning-modal" class="modal">
+    <div class="modal-content">
+        <h4>Ad Blocker Detected!</h4>
+
+        <p>We have detected that you are currently running an ad blocker. We will
+        NOT show you any adverts on this site, however, ad blockers will block
+        certain parts of this website and it will therefore not run as intended.</p>
+
+        <p>Please turn off your ad blocker, or disable it for this website, and then
+        refresh the page to continue using the AdSpruce website.</p>
+    </div>
+    <div class="modal-footer">
+        <a href="http://adspruce.com/advertisers/video-in-page#" class="modal-action modal-close waves-effect btn-flat">OK</a>
+    </div>
+</div>
+
+<!-- Google Analytics Code -->
+<script>
+
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-40722506-1', 'auto');
+
+    ga('send', 'pageview');
+
+</script>
+
+
+
+
+
+
+<div class="material-tooltip" id="65a3d72a-97a1-4631-4c05-78c4368a2139"><span>Replay Video</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="material-tooltip" id="376a657e-2c19-6af3-a76d-aa46ccb8153e"><span>Navigate Page</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="material-tooltip" id="bc555586-7cb9-d48c-200c-800267813037"><span>Facebook</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="material-tooltip" id="edc23201-f55a-d5ca-4416-18afbb4288c2"><span>Twitter</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="material-tooltip" id="f7acf30c-9a9b-c510-6acf-e8af0213b22e"><span>Google+</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="material-tooltip" id="85cca4bf-b003-f455-872a-63bae7630965"><span>LinkedIn</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="material-tooltip" id="5630f196-aac5-6d4d-f4ad-f9dfc691f5f6"><span>Pinterest</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="hiddendiv common"></div><div class="drag-target" style="left: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></div><div class="material-tooltip" id="a3a766eb-5ee6-8c4e-e8c0-1974004e4429"><span>Replay Video</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="material-tooltip" id="14d2c068-ec88-4b51-a6b6-5681af1c93bc"><span>Navigate Page</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="material-tooltip" id="b25a95c8-8708-e2b4-96c5-809d43ec4bfe"><span>Facebook</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="material-tooltip" id="f36109fd-ec1c-a948-6280-5e81e9f8bf17"><span>Twitter</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="material-tooltip" id="a868df52-29b2-21ac-fe47-939e11666c69"><span>Google+</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="material-tooltip" id="90022b6f-a0c9-c3e7-6cf8-82842b3051be"><span>LinkedIn</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="material-tooltip" id="de1ca65a-ccae-f333-fbb1-ca6311be5a89"><span>Pinterest</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div></body></html>
