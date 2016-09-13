@@ -86,8 +86,8 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         wrapper.appendChild(skip);
 
         video.addEventListener('canplay', function(evt) {
-            window.alert(evt.type);
-            video.play();
+            //window.alert(evt.type);
+            //video.play();
             
         });
 
@@ -135,8 +135,15 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         window.addEventListener('scroll', onScrollHandler);
         
         function onScrollHandler(evt) {
-            video.load();
-            expandToMedium();
+            if (state == 0) {
+                video.load();
+                expandToMedium();
+            } 
+            
+            else if (state == 1) {
+                window.removeEventListener('scroll', onScrollHandler);
+                video.play();
+            } 
         }
 
         function onVideoEndedHandler(evt) {
@@ -177,7 +184,7 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         }
 
         function expandToMedium() {
-            window.removeEventListener('scroll', onScrollHandler);
+            //window.removeEventListener('scroll', onScrollHandler);
             state = 1;
 
             var marginLeft = -160;
