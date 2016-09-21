@@ -102,7 +102,7 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
             //window.alert(evt.type);
             skip.innerHTML = evt.type;
             
-            fireClick(video);
+            //fireClick(video);
             
         });
 
@@ -152,17 +152,19 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
             mu.src = video.muted ?  mute : unmute;
         });
 
-
         //window.addEventListener('scroll', onScrollHandler);
 
-        window.addEventListener('touchstart', function(evt) {
+        window.addEventListener('touchstart', onTouchStartHandler);
+        function onTouchStartHandler(evt) {
+            window.removeEventListener('touchstart', onTouchStartHandler);
             video.load();
-        });
+        };
 
-        window.addEventListener('touchend', function(evt) {
+        window.addEventListener('touchend', onTouchEndHandler);
+        function onTouchEndHandler(evt) {
+            window.removeEventListener('touchend', onTouchEndHandler);
             expandToMedium();
-        });
-
+        };
         
         function onScrollHandler(evt) {
             if (state == 0) {
