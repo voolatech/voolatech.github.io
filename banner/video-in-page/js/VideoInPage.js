@@ -85,10 +85,24 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         skip.style.cursor = 'pointer';
         wrapper.appendChild(skip);
 
+        function fireClick(node){
+            if (document.createEvent) {
+                var evt = document.createEvent('MouseEvents');
+                evt.initEvent('click', true, false);
+                node.dispatchEvent(evt);    
+            } else if (document.createEventObject) {
+                node.fireEvent('onclick') ; 
+            } else if (typeof node.onclick == 'function') {
+                node.onclick(); 
+            }
+        }
+
+
         video.addEventListener('canplay', function(evt) {
             //window.alert(evt.type);
             skip.innerHTML = evt.type;
-            video.play();
+            
+            fireClick(video);
             
         });
 
@@ -101,6 +115,8 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         });
 
         video.addEventListener('click', function(evt) {
+            //alert(0);
+
             if (state == 1) {
                 expandToLarge();
             }
