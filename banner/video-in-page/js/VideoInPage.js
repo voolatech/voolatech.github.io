@@ -117,6 +117,9 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         video.addEventListener('click', function(evt) {
             //alert(0);
 
+            video.play();
+
+            /*
             if (state == 1) {
                 expandToLarge();
             }
@@ -127,6 +130,7 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
                 var win = window.open(clicktag, '_blank');
                 win.focus();
             }
+            */
         });
 
         ex.addEventListener('click', function(evt) {
