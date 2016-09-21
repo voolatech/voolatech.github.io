@@ -85,25 +85,11 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         skip.style.cursor = 'pointer';
         wrapper.appendChild(skip);
 
-        function fireClick(node){
-            if (document.createEvent) {
-                var evt = document.createEvent('MouseEvents');
-                evt.initEvent('click', true, false);
-                node.dispatchEvent(evt);    
-            } else if (document.createEventObject) {
-                node.fireEvent('onclick') ; 
-            } else if (typeof node.onclick == 'function') {
-                node.onclick(); 
-            }
-        }
-
-
         video.addEventListener('canplay', function(evt) {
             //window.alert(evt.type);
             skip.innerHTML = evt.type;
             
-            //fireClick(video);
-            
+            //fireClick(video);            
         });
 
         video.addEventListener('abort', function(evt) {
@@ -115,11 +101,6 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         });
 
         video.addEventListener('click', function(evt) {
-            //alert(0);
-
-            //video.play();
-
-            /*
             if (state == 1) {
                 expandToLarge();
             }
@@ -130,11 +111,10 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
                 var win = window.open(clicktag, '_blank');
                 win.focus();
             }
-            */
         });
 
-        ex.addEventListener('click', function(evt) {
-            /*
+        function onClickEXHandler(evt) {
+            console.log(evt);
             if (state == 0) {
                 expandToMedium();
             }
@@ -146,8 +126,7 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
             else {
                 collapseToMedium();
             }
-            */
-        });
+        }
 
         mu.addEventListener('click', function(evt) {
             video.muted = !video.muted;
@@ -164,8 +143,16 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
 
         window.addEventListener('touchend', onTouchEndHandler);
         function onTouchEndHandler(evt) {
+            console.log(evt.target);
+
             window.removeEventListener('touchend', onTouchEndHandler);
-            expandToMedium();
+           
+            if (evt.target == ex) {
+                ex.addEventListener('click', onClickEXHandler);
+            } else {
+                expandToMedium();
+            }    
+            
         };
         
         function onScrollHandler(evt) {
