@@ -134,6 +134,7 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         });
 
         ex.addEventListener('click', function(evt) {
+            /*
             if (state == 0) {
                 expandToMedium();
             }
@@ -145,6 +146,7 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
             else {
                 collapseToMedium();
             }
+            */
         });
 
         mu.addEventListener('click', function(evt) {
