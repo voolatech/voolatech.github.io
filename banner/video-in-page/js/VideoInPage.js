@@ -72,7 +72,7 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
 
         var skip = document.createElement('div');
         skip.innerHTML = 'Skip Ads After 5s';
-        skip.style.display = 'none';
+        //skip.style.display = 'none';
         skip.style.fontSize = '12px';
         skip.style.color = 'white';
         skip.style.width = '110px';
@@ -87,16 +87,17 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
 
         video.addEventListener('canplay', function(evt) {
             //window.alert(evt.type);
-            //video.play();
+            skip.innerHTML = evt.type;
+            video.play();
             
         });
 
         video.addEventListener('abort', function(evt) {
-            //window.alert(evt.type);
+            skip.innerHTML = evt.type;
         });
 
         video.addEventListener('error', function(evt) {
-            //window.alert(evt.type);
+            skip.innerHTML = evt.type;
         });
 
         video.addEventListener('click', function(evt) {
@@ -257,6 +258,8 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         }
 
         function runSkip() {
+            return;
+
             skip.style.display = 'block';
             
             skipTime = 5;
