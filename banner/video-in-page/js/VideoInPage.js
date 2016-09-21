@@ -72,7 +72,7 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
 
         var skip = document.createElement('div');
         skip.innerHTML = 'Skip Ads After 5s';
-        //skip.style.display = 'none';
+        skip.style.display = 'none';
         skip.style.fontSize = '12px';
         skip.style.color = 'white';
         skip.style.width = '110px';
@@ -84,21 +84,6 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         skip.style.textAlign = 'center';
         skip.style.cursor = 'pointer';
         wrapper.appendChild(skip);
-
-        video.addEventListener('canplay', function(evt) {
-            //window.alert(evt.type);
-            skip.innerHTML = evt.type;
-            
-            //fireClick(video);            
-        });
-
-        video.addEventListener('abort', function(evt) {
-            skip.innerHTML = evt.type;
-        });
-
-        video.addEventListener('error', function(evt) {
-            skip.innerHTML = evt.type;
-        });
 
         video.addEventListener('click', function(evt) {
             if (state == 1) {
@@ -114,7 +99,6 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         });
 
         function onClickEXHandler(evt) {
-            console.log(evt);
             if (state == 0) {
                 expandToMedium();
             }
@@ -133,7 +117,7 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
             mu.src = video.muted ?  mute : unmute;
         });
 
-        //window.addEventListener('scroll', onScrollHandler);
+        var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints;  
 
         window.addEventListener('touchstart', onTouchStartHandler);
         function onTouchStartHandler(evt) {
@@ -143,8 +127,6 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
 
         window.addEventListener('touchend', onTouchEndHandler);
         function onTouchEndHandler(evt) {
-            console.log(evt.target);
-
             window.removeEventListener('touchend', onTouchEndHandler);
            
             if (evt.target == ex) {
@@ -173,8 +155,7 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         function collapse() {
             clearInterval(skipInteral);
             skip.style.display = 'none';
-            skip.removeEventListener('click', onSkipAdsHandler);
-            
+            skip.removeEventListener('click', onSkipAdsHandler);            
             video.removeEventListener('ended', onVideoEndedHandler);
 
             var preState = state;
@@ -204,7 +185,7 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         }
 
         function expandToMedium() {
-            //window.removeEventListener('scroll', onScrollHandler);
+            window.removeEventListener('scroll', onScrollHandler);
             state = 1;
 
             var marginLeft = -160;
@@ -214,12 +195,12 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
                 wrapper.style.marginLeft = marginLeft + 'px';
 
                 if (marginLeft >= 0) {
-                    clearInterval(interval);                    
+                    clearInterval(interval);      
+                    ex.addEventListener('click', onClickEXHandler);              
                 }
             }, 17); 
 
             video.addEventListener('ended', onVideoEndedHandler);
-            //makeVideoPlayableInline(video);
             video.play();
         }
 
@@ -267,7 +248,6 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
             }, 17);
 
             video.addEventListener('ended', onVideoEndedHandler);
-            //makeVideoPlayableInline(video);
             video.play();
 
             if (!isRunSkip) {
@@ -277,8 +257,6 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
         }
 
         function runSkip() {
-            return;
-
             skip.style.display = 'block';
             
             skipTime = 5;
@@ -299,11 +277,6 @@ Voola.VideoInPage = function(bg, videoURL, clicktag, arrow, close, mute, unmute)
 
         function onSkipAdsHandler(evt) {
             collapse();
-        }
-
-        function remove() {
-            //video.pause();
-            //container.parentNode.removeChild(container);
         }
     };
 };
