@@ -1,15 +1,18 @@
-<VAST version="2.0">    <Ad id="pre-roll" >
+<VAST version="2.0">    <Ad id="pre-roll">
         <InLine>
             <AdSystem>AKA Ads Network ET</AdSystem>
             <AdTitle><![CDATA[16 T3 Preroll -OMD - Phim3s -video 1]]></AdTitle>
             <Description><![CDATA[Inline Video Ad]]></Description>
-            <Impression><![CDATA[http://data.akanetwork.com/www/delivery/lg.php?bannerid=3011&campaignid=1310&zoneid=1613&cb=091b3bf1ca]]></Impression>
+            <Impression>
+            	<![CDATA[http://data.akanetwork.com/www/delivery/lg.php?bannerid=3011&campaignid=1310&zoneid=1613&cb=a9f44188bb]]> 
+            </Impression>
 			<Creatives>
 			<Creative id="3011" AdID="3011" sequence="1">
 			<Linear>
 			<Duration>00:00:18</Duration>
 			<TrackingEvents>
-				<Tracking event="start"><![CDATA[http://data.akanetwork.com/www/delivery/fc.php?script=deliveryLog:oxLogVast:logImpressionVast&banner_id=3011&zone_id=1613&vast_event=start]]>
+				<Tracking event="start">
+				<![CDATA[http://data.akanetwork.com/www/delivery/fc.php?script=deliveryLog:oxLogVast:logImpressionVast&banner_id=3011&zone_id=1613&vast_event=start]]>
 				</Tracking>
 				
 				<Tracking event="firstQuartile">
@@ -24,7 +27,8 @@
 				<![CDATA[http://data.akanetwork.com/www/delivery/fc.php?script=deliveryLog:oxLogVast:logImpressionVast&banner_id=3011&zone_id=1613&vast_event=thirdquartile]]>
 				</Tracking>
 				
-				<Tracking event="complete"><![CDATA[http://data.akanetwork.com/www/delivery/fc.php?script=deliveryLog:oxLogVast:logImpressionVast&banner_id=3011&zone_id=1613&vast_event=complete]]>
+				<Tracking event="complete">
+				<![CDATA[http://data.akanetwork.com/www/delivery/fc.php?script=deliveryLog:oxLogVast:logImpressionVast&banner_id=3011&zone_id=1613&vast_event=complete]]>
 				</Tracking>
 				
 				<Tracking event="mute"><![CDATA[http://data.akanetwork.com/www/delivery/fc.php?script=deliveryLog:oxLogVast:logImpressionVast&banner_id=3011&zone_id=1613&vast_event=mute]]></Tracking>
@@ -34,10 +38,11 @@
 				<Tracking event="resume"><![CDATA[http://data.akanetwork.com/www/delivery/fc.php?script=deliveryLog:oxLogVast:logImpressionVast&banner_id=3011&zone_id=1613&vast_event=resume]]></Tracking>
 			</TrackingEvents>
 			<VideoClicks>
-                <ClickThrough><![CDATA[http://data.akanetwork.com/www/delivery/ck.php?oaparams=2__bannerid=3011__zoneid=1613__OXLCA=1__cb=091b3bf1ca__oadest=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.google.android.googlequicksearchbox]]></ClickThrough>
-            </VideoClicks>
+                        <ClickThrough><![CDATA[http://data.akanetwork.com/www/delivery/ck.php?oaparams=2__bannerid=3011__zoneid=1613__OXLCA=1__cb=a9f44188bb__oadest=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.google.android.googlequicksearchbox]]></ClickThrough>
+                    </VideoClicks>
 			<MediaFiles>
-				<MediaFile delivery="progressive" bitrate="400" width="640" height="480" type="video/mp4">https://ds-vn.serving-sys.com/BurstingRes/Site-48126/Type-16/e55037b6-ee2b-49a7-8734-296801d5a62d.mp4</MediaFile>
+				<MediaFile delivery="progressive" bitrate="400" width="640" height="480" type="video/mp4">http://www.w3schools.com/html/mov_bbb.mp4
+				</MediaFile>
 			</MediaFiles>
 			</Linear>
 			</Creative>
