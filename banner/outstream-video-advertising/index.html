@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html><head>
+    <title>Outstream Video Advertising</title>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no">
+    
+    <!-- Style Sheets -->
+    <link href="./assets/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="./assets/icon" rel="stylesheet">
+    <link href="./assets/font-awesome.min.css" rel="stylesheet">
+    <link href="./assets/css" rel="stylesheet" type="text/css">
+
+    <!--  Scripts-->
+    <script src="./assets/jquery-2.1.1.min.js"></script>
+    <!--script src="./assets/materialize.min.js"></script>
+    <script src="./assets/main.min.js"></script>
+    <script src="./assets/showads.js"></script>
+    <!--script src="./assets/dropUp.min.js"></script-->
+
+    <script type="text/javascript">
+	/*
+	$(document).ready(function () {
+        $('.modal-trigger').leanModal();
+        $(".button-collapse").sideNav();
+        $('.slider').slider();
+        $('.carousel').carousel();
+
+        function setBlur () {
+            $('.carousel-item').each(function(){
+
+                var z = parseInt($(this).css('z-index'));
+
+                if(z === -1) {
+                    $(this).css({"-webkit-filter":"blur(1px)","-moz-filter":"blur(1px)", "filter":"blur(1px)"});
+                }else if(z === -2) {
+                    $(this).css({"-webkit-filter":"blur(2px)","-moz-filter":"blur(2px)", "filter":"blur(2px)"});
+                }else{
+                    $(this).css({"-webkit-filter":"blur(0px)","-moz-filter":"blur(0px)", "filter":"blur(0px)"});
+                }
+            });
+        }
+
+        var blocktimer = setInterval(function() {
+            $('.carousel').carousel('next');
+            setTimeout(setBlur,300);
+        }, 7000);
+
+        $('.carousel-item').on('click', function(){
+            clearInterval(blocktimer);
+            setTimeout(setBlur,300);
+        });
+
+        setBlur();
+        $('ul.tabs').tabs();
+        // Initialize collapsible
+        $('.collapsible').collapsible();
+        $('.tooltipped').tooltip({"delay": 50});
+        $('select').material_select();
+        $('.dropdown-button').dropdown({
+                inDuration: 300,
+                outDuration: 225,
+                constrain_width: true, // Does not change width of dropdown to that of the activator
+                hover: false
+            }
+        );
+
+        // Check if an ad blocker is detected:
+        if (window.canRunAds === undefined) {
+            showAdBlockerWarning();
+        }
+    });
+
+    function showAdBlockerWarning() {
+        $('#blocker-warning-modal').openModal();
+    }
+    */
+
+</script>
+    
+        
+</head>
+<body>
+
+<nav>
+    <div class="nav-wrapper">
+        <div class="container">
+            <a href="#" class="brand-logo"><span>AdSpruce</span></a>
+            <ul id="nav-mobile" class="right side-nav collapsible collapsible-accordion" style="left: -250px;">
+                <li><a href="#" title="Menu 01">Menu 01</a></li>
+                <li><a href="#" title="Menu 02">Menu 02</a></li>
+                <li><a href="#" title="Menu 03">Menu 03</a></li>
+                <li><a href="#" title="Menu 04">Menu 04</a></li>
+                <li><a href="#" title="Menu 05">Menu 05</a></li>
+            </ul>
+            
+            <a class="button-collapse" href="#" data-activates="nav-mobile">Menu</a>
+            
+        </div>
+    </div>
+</nav>
+
+
+<div id="first-block" class="row main animation-adspruce fadeIn animated" data-wow-duration="1s" data-wow-delay="0.3s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.3s; animation-name: fadeIn;">
+    <div class="col s12 m12 l12">
+        <div class="container">
+            <div class="content">
+                <h2>What is Lorem Ipsum?</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="second-block" class="g-spot-block main row">
+    <div class="col no-pad s12 m12 l12">
+        <div class="col no-pad s12 m12 l6 centerer-image g-spot-mobile-fix">
+            
+
+            <div class="mini-pop-div">
+
+                    <!--div class="mini-pop-container">
+                        <div id="mini-pop-wrapper" style="margin-left: -312px;">
+                            <div class="mini-pop-bg"></div>
+                            <video id="mini-pop-vid" src="http://cdn-video.adspruce.com/website/video-in-page-diesel.mp4" style="display: none;"></video>
+                            <div id="mini-pop-tab" style="background-image: url(&quot;http://32808eb254d4d3a338bf-2b96655e783eed0674def440d206be58.r48.cf3.rackcdn.com/new-assets/collapse.png&quot;);"></div>
+                            <div id="mini-pop-mute" style="display: none; background-image: url(&quot;http://32808eb254d4d3a338bf-2b96655e783eed0674def440d206be58.r48.cf3.rackcdn.com/new-assets/mute.png&quot;);"></div>
+                        </div>
+                    </div-->
+                </div>
+            
+        </div><!-- col s12 m12 l6 -->
+        <div class="col s12 m12 l6">
+            <div class="centerer-text how-intro left animation-adspruce fadeIn animated" data-wow-duration="1s" data-wow-delay="0s" style="visibility: visible; animation-duration: 1s; animation-delay: 0s; animation-name: fadeIn; margin-top: 0px;">
+                <h2>Why do we use it?</h2>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)</p>
+            </div><!-- .centerer-text -->
+        </div><!-- col s12 m12 l6 -->
+    </div><!-- col s12 m12 l12 -->
+</div><!-- #second-block -->
+
+<div id="third-block" class="row">
+    <div class="col no-pad s12 m12 ls12 lx6 right-col">
+        <div class="centerer-image img-container">
+            <img src="" alt="Enhanced Mobile Video Advertising User-Experience" title="Enhanced Mobile Video Advertising User-Experience" class="image-large bottom">
+        </div><!-- .img-container -->
+    </div><!-- .right-col -->
+    <div class="col s12 m12 ls12 lx6">
+        <div class="centerer-text benefits right-col animation-adspruce fadeIn animated" data-wow-duration="1s" data-wow-delay="0s" style="visibility: visible; animation-duration: 1s; animation-delay: 0s; animation-name: fadeIn; margin-top: 79px;">
+            <h2>Where does it come from?</h2>
+            <ul class="benefits g-spot">
+                <li>Contrary to popular belief, Lorem Ipsum is not simply random text. </li>
+                <li>It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. </li>
+                <li>Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia</li>
+                <li>Lorem Ipsum comes from sections 1.10.32 and 1.10.33</li>
+            </ul><!-- .benefits -->
+        </div><!-- .centerer-text -->
+    </div><!-- col s12 m12 ls12 lx6 -->
+</div><!-- #fourth-block -->
+
+<div id="fourth-block" class="grey lighten-3 row">
+    <div class="container main">
+        <h2 class="sub-main animation-adspruce fadeInUp animated" data-wow-duration="1s" data-wow-delay="0s" style="visibility: visible; animation-duration: 1s; animation-delay: 0s; animation-name: fadeInUp;">Where can I get some?</h2>
+        <div class="row">
+            <div id="campaigns-view" class="flexbox-holder">
+			
+			<div class="col s12 m6 l4"><div class="card clients"><div class="card-image"><img src="" alt="Subway Big Eat" title="Subway Big Eat"><div class="card-title"><h3>Subway</h3></div><div class="card-title sub"><h4>Subway Big Eat</h4></div></div><div class="card-content"><h5>Industry</h5><p class="filter-industry">Food and Drink</p><h5>Ad Format</h5><p class="filter-ad-format">G-Spot</p><h5>Country / Region</h5><p class="filter-country">United States</p><h5>Target Audience</h5><p class="filter-audience">15-65</p><h5>Platform</h5><p class="truncate filter-platform" title="Android Phone &amp; iPhone">Android Phone &amp; iPhone</p></div><div class="card-action"><a class="watch-video-action" href="#">View Detail</a></div></div></div>
+			
+			<div class="col s12 m6 l4"><div class="card clients"><div class="card-image"><img src="" alt="Diesel Loverdose Red Kiss" title="Diesel Loverdose Red Kiss"><div class="card-title"><h3>Diesel</h3></div><div class="card-title sub"><h4>Loverdose Red Kiss</h4></div></div><div class="card-content"><h5>Industry</h5><p class="filter-industry">Beauty and Fashion</p><h5>Ad Format</h5><p class="filter-ad-format">G-Spot</p><h5>Country / Region</h5><p class="filter-country">United Kingdom</p><h5>Target Audience</h5><p class="filter-audience">18-24</p><h5>Platform</h5><p class="truncate filter-platform" title="Android Phone &amp; iPhone">Android Phone &amp; iPhone</p></div><div class="card-action"><a class="watch-video-action" href="#">View Detail</a></div></div></div>
+			
+			<div class="col s12 m6 l4"><div class="card clients"><div class="card-image"><img src="" alt="Reeses Peanut Butter Cups" title="Reeses Peanut Butter Cups"><div class="card-title"><h3>Reeses</h3></div><div class="card-title sub"><h4>Peanut Butter Cups</h4></div></div><div class="card-content"><h5>Industry</h5><p class="filter-industry">Food and Drink</p><h5>Ad Format</h5><p class="filter-ad-format">G-Spot</p><h5>Country / Region</h5><p class="filter-country">United Kingdom</p><h5>Target Audience</h5><p class="filter-audience">15-35</p><h5>Platform</h5><p class="truncate filter-platform" title="Android Phone &amp; iPhone">Android Phone &amp; iPhone</p></div><div class="card-action"><a class="watch-video-action" href="#">View Detail</a></div></div></div></div>
+
+            
+        </div>
+    </div>
+</div>
+
+<div id="fourth-block" class="row">
+    <a href="#" title="View AdSpruce&#39;s Successful Video Banner Mobile Advertising Campaigns" class="col center waves-effect waves-light big-link g-spot-block s12 m12 l12">
+        <h2>
+            What is Lorem Ipsum?
+        </h2>
+        <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s</p>
+    </a>
+</div><!-- #sixth-block -->
+
+
+<!-- Modal Structure -->
+<div id="video-modal" class="modal modal-fixed-footer">
+    <div class="modal-content" style="text-align:center">
+        <video id="modal-video-player" class="responsive-video"></video>
+    </div>
+    <div class="modal-footer">
+        <div class="btn-flat video-btn modal-action modal-close">Close</div>
+    </div>
+</div>
+
+<script>
+
+
+
+
+
+
+
+
+    /*
+    function VideoStatus(){var i=document.querySelector("#videoPlayer1");i.muted=true;window.innerWidth<767?i.pause():(i.autoplay=!0,i.load(),i.onended=function(){i.load(),i.pause(),$(".btnPlay").fadeTo(1e3,1).css("display","block"),$(".btnPlay .fa").fadeTo(1e3,1).css("display","block")},$(".btnPlay").click(function(){return i.play&&(i.play(),$(".btnPlay").fadeOut(1e3,0),$(".btnPlay .fa").fadeOut(1e3,0)),!1}))}window.onload=VideoStatus,$(function(){$(window).bind("resize",function(){var i=document.querySelector("#videoPlayer1");$(".btnPlay")[0].onclick=function(){i.play(),$(".btnPlay").fadeOut(100,0),$(".btnPlay .fa").fadeOut(100,0)},$(this).width()<767?($(".btnPlay").fadeOut(100,0),$(".btnPlay .fa").fadeOut(100,0),i.pause()):($(".btnPlay").fadeTo(100,1).css("display","block"),$(".btnPlay .fa").fadeTo(100,1).css("display","block"),i.pause())})});var isVisible=function(i){var e,n,t=window.innerHeight,a=window.innerWidth,d=window.pageYOffset,o=window.pageXOffset,l=i.clientHeight,p=i.clientWidth;return e=i.parentNode.parentNode.parentNode.parentNode.offsetLeft+i.offsetLeft,n=i.parentNode.parentNode.parentNode.parentNode.offsetTop+i.offsetTop,n+l>d&&n+l-d>=.7*l&&d+t>n&&d+t-n>=.7*l&&e+p>o&&e+p-o>=.7*p&&o+a>e&&o+a-e>=.7*p},minivid=$("#mini-pop-vid")[0],miniwrap=$("#mini-pop-wrapper")[0],minitab=$("#mini-pop-tab")[0],minimute=$("#mini-pop-mute")[0],lasttype="";miniwrap.style.marginLeft="-312px",minivid.muted=!0,minivid.addEventListener("ended",function(){minipopAnimate("full")});var minipopAnimate=function(i){var e,n,t,a=parseInt(miniwrap.style.marginLeft),d=a,o=6,l=33;return"partial"===i?(e=-272,n=function(){minitab.style.backgroundImage='url("http://32808eb254d4d3a338bf-2b96655e783eed0674def440d206be58.r48.cf3.rackcdn.com/new-assets/expand.png")'}):"full"===i||"video"===i?(e=-1,n=function(){minitab.style.backgroundImage='url("http://32808eb254d4d3a338bf-2b96655e783eed0674def440d206be58.r48.cf3.rackcdn.com/new-assets/collapse.png")',"full"===i?(minivid.style.display="none",minimute.style.display="none",setTimeout(function(){minipopAnimate("hide")},1e4)):"video"===i&&"none"!==minivid.style.display&&minivid.play()}):"hide"===i&&(e=-312),a===e&&i===lasttype?!0:(a>e&&(o=-1*o),lasttype=i,void(t=setInterval(function(){0>o&&e>d+o||o>0&&d+o>e?(miniwrap.style.marginLeft=e+"px",clearInterval(t),"function"==typeof n&&n()):(d+=o,miniwrap.style.marginLeft=d+"px")},l)))};minipopAnimate("partial");var myVisibleTimer=setInterval(function(){isVisible(minivid)&&0===minivid.currentTime&&"video"!==lasttype?minipopAnimate("video"):isVisible(minivid)&&minivid.paused===!0&&"none"!==minivid.style.display?minivid.play():isVisible(minivid)||minivid.pause()},250);minitab.onclick=function(){minipopAnimate("video"===lasttype||"full"===lasttype?"partial":"video")},minimute.onclick=function(){minivid.muted===!0?(minivid.muted=!1,minimute.style.backgroundImage='url("http://32808eb254d4d3a338bf-2b96655e783eed0674def440d206be58.r48.cf3.rackcdn.com/new-assets/unmute.png")'):(minivid.muted=!0,minimute.style.backgroundImage='url("http://32808eb254d4d3a338bf-2b96655e783eed0674def440d206be58.r48.cf3.rackcdn.com/new-assets/mute.png")')};function loadCampaigns(){$.ajax({url:"/ajax/get-gspot-case-studies",type:"GET",async:!1,success:function(i){var e=JSON.parse(i);if(e.result===!1)return $("#no-campaigns").show(),!1;var n="";for(var t in e)n+='<div class="col s12 m6 l4"><div class="card clients"><div class="card-image"><img src="'+e[t].image_url+'" alt="'+e[t].image_title+'" title="'+e[t].image_title+'"/><div class="card-title"><h3>'+e[t].advertiser_name+'</h3></div><div class="card-title sub"><h4>'+e[t].title+'</h4></div></div><div class="card-content"><h5>Industry</h5><p class="filter-industry">'+e[t].industry+'</p><h5>Ad Format</h5><p class="filter-ad-format">'+e[t].advert_format+'</p><h5>Country / Region</h5><p class="filter-country">'+e[t].country+'</p><h5>Target Audience</h5><p class="filter-audience">'+e[t].target_audience_lower+"-"+e[t].target_audience_upper+'</p><h5>Platform</h5><p class="truncate filter-platform" title="'+e[t].platform+'">'+e[t].platform+'</p></div><div class="card-action"><a class="watch-video-action" href="'+e[t].advert_mobile_url+'" data-desktop-url="'+e[t].advert_desktop_url+'">View Advert</a></div></div></div>';$("#campaigns-view").html(n)}})}var isMobile=!1,isTablet=!1;$(document).ready(function(){loadCampaigns()}),$("#campaigns-view").on("click",".watch-video-action",function(i){var e=$(this).data("desktop-url");if(!isMobile&&!isTablet){i.preventDefault();var n=document.getElementById("modal-video-player");$("#modal-video-player").html('<source src="'+e+'" type="video/mp4"> Your browser does not support this type of video.'),n.load(),n.play(),$("#video-modal").openModal()}}),$(".modal-close").on("click",function(){var i=document.getElementById("modal-video-player");i.pause()});
+    */</script>
+
+<footer class="grey darken-2">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 m12 s12 footer-about">
+                <h5 class="white-text">About Video In Page</h5>
+                <p class="grey-text text-lighten-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+            </div>
+			
+            <div class="col l6 s12">
+                <h5 class="white-text">Our Pages</h5>
+                <ul class="col s12 m4 no-pad browse-links">
+                    <span class="white-text nav-subheading">Page 01</span>
+                    <li><a class="white-text" href="#" title="Link 01">Link 01</a></li>
+                    <li><a class="white-text" href="#" title="Link 01">Link 01</a></li>
+                    <li><a class="white-text" href="#" title="Link 01">Link 01</a></li>
+                    <li><a class="white-text" href="#" title="Link 01">Link 01</a></li>
+                    <li><a class="white-text" href="#" title="Link 01">Link 01</a></li>
+                </ul>
+                <ul class="col s12 m4 no-pad browse-links">
+                    <span class="white-text nav-subheading">Page 02</span>
+                    <li><a class="white-text" href="#" title="Link 02">Link 02</a></li>
+                    <li><a class="white-text" href="#" title="Link 02">Link 02</a></li>
+                    <li><a class="white-text" href="#" title="Link 02">Link 02</a></li>
+                    <li><a class="white-text" href="#" title="Link 02">Link 02</a></li>
+                    <li><a class="white-text" href="#" title="Link 02">Link 02</a></li>
+                </ul>
+                <ul class="col s12 m4 no-pad browse-links">
+                    <span class="white-text nav-subheading">Page 03</span>
+                    <li><a class="white-text" href="#" title="Link 03">Link 03</a></li>
+                    <li><a class="white-text" href="#" title="Link 03">Link 03</a></li>
+                    <li><a class="white-text" href="#" title="Link 03">Link 03</a></li>
+                    <li><a class="white-text" href="#" title="Link 03">Link 03</a></li>
+                    <li><a class="white-text" href="#" title="Link 03">Link 03</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+	
+    <div class="footer-copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12 l6 footer-link-holder">
+                    <a class="footer-link" href="#" title="Footer 01">Footer 01</a>
+                    <a class="footer-link" href="#" title="Footer 02">Footer 02</a>
+                    <a class="footer-link" href="#" title="Footer 03">Footer 03</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="./js/VideoInPageLoader.js"></script>
+
+</body></html>
