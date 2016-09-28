@@ -46,6 +46,20 @@ Voola.VideoInPage = function(objVAST, objImage) {
         top.style.background = 'black';
         wrapper.appendChild(top);
 
+        var title = document.createElement('img');
+        title.src = objImage.title;
+        title.style.position = 'absolute';
+        title.style.cursor = 'pointer';
+        top.appendChild(title);
+
+        var mu = document.createElement('img');
+        mu.src = objImage.mute;
+        mu.style.position = 'absolute';
+        mu.style.cursor = 'pointer';
+        mu.style.right = '30px';
+        mu.style.top = '1px';
+        top.appendChild(mu);
+
         var ex = document.createElement('img');
         ex.src = objImage.close;
         ex.style.position = 'absolute';
@@ -66,7 +80,6 @@ Voola.VideoInPage = function(objVAST, objImage) {
         video.style.cursor = 'pointer';
         wrapper.appendChild(video);
 
-
         var bottom =  document.createElement('div');
         bottom.className = '';
         bottom.style.width = '320px';
@@ -76,31 +89,12 @@ Voola.VideoInPage = function(objVAST, objImage) {
         bottom.style.background = 'black';
         container.appendChild(bottom);
 
+        var img = document.createElement('img');
+        img.src = objImage.banner;
+        img.style.position = 'absolute';
+        img.style.cursor = 'pointer';
+        bottom.appendChild(img);
         
-
-        /*
-        var mu = document.createElement('img');
-        mu.src = objImage.mute;
-        mu.style.position = 'absolute';
-        mu.style.right = '2px';
-        mu.style.bottom = '2px';
-        mu.style.cursor = 'pointer';
-        wrapper.appendChild(mu);
-
-        var skip = document.createElement('div');
-        skip.innerHTML = 'Skip Ads After 5s';
-        skip.style.display = 'none';
-        skip.style.fontSize = '12px';
-        skip.style.color = 'white';
-        skip.style.width = '110px';
-        skip.style.height = '20px';
-        skip.style.background = 'black';
-        skip.style.position = 'absolute';
-        skip.style.left = '5px';
-        skip.style.bottom = '5px';
-        skip.style.textAlign = 'center';
-        skip.style.cursor = 'pointer';
-        wrapper.appendChild(skip);
 
         var trackingPercent =  false
         
@@ -128,9 +122,9 @@ Voola.VideoInPage = function(objVAST, objImage) {
                 trackingPercent = false;
             }
         });
-        */
 
         video.addEventListener('click', function(evt) {
+            console.log('04');
             collapseToSmall();
 
             //tracking(objVAST.pause);
@@ -139,21 +133,6 @@ Voola.VideoInPage = function(objVAST, objImage) {
             win.focus();
         });
 
-        /*
-        function onClickEXHandler(evt) {
-            if (state == 0) {
-                expandToMedium();
-            }
-
-            else if (state == 1) {
-                expandToLarge();
-            }
-
-            else {
-                collapseToMedium();
-            }
-        }
-
         mu.addEventListener('click', function(evt) {
             video.muted = !video.muted;
             mu.src = video.muted ?  objImage.mute : objImage.unmute;
@@ -161,7 +140,6 @@ Voola.VideoInPage = function(objVAST, objImage) {
             tracking(video.muted ? objVAST.mute : objVAST.unmute);
 
         });
-        */
 
         var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints;  
         var targetTouch = null;
@@ -187,8 +165,11 @@ Voola.VideoInPage = function(objVAST, objImage) {
                 
 
                 if (evt.target == bottom) {
-                    bottom.addEventListener('click', onClickBanerHandler);   
+                    console.log('click');
+                    //bottom.addEventListener('click', onClickBanerHandler);   
                 } else {
+                    console.log('touchend');
+                    
                     window.removeEventListener('touchend', onTouchEndHandler);
                     expandToLarge();
                 }                
@@ -199,8 +180,9 @@ Voola.VideoInPage = function(objVAST, objImage) {
         function onClickBanerHandler(evt) {
            
             if (state == 1) {
+                console.log('01');
                 collapseToSmall();
-                //tracking(objVAST.pause);
+                tracking(objVAST.pause);
             }
                     
             var win = window.open(objVAST.clickThrough, '_blank');
@@ -210,26 +192,14 @@ Voola.VideoInPage = function(objVAST, objImage) {
         ex.addEventListener('click', onClickEXHandler);
 
         function onClickEXHandler(evt) {
+            console.log('02');
             collapseToSmall();
         }
-        
-        /*
-        function onScrollHandler(evt) {
-            if (state == 0) {
-                expandToMedium();
-            } 
-            
-            else if (state == 1) {
-                window.removeEventListener('scroll', onScrollHandler);
-                tracking(objVAST.resume);
-                video.play();
-            } 
-        }
-        */
-
+      
         function onVideoEndedHandler(evt) {
-            //tracking(objVAST.complete);
+            tracking(objVAST.complete);
 
+            console.log('03');
             collapseToSmall();
         }
 
@@ -251,39 +221,6 @@ Voola.VideoInPage = function(objVAST, objImage) {
             video.removeEventListener('ended', onVideoEndedHandler);
         }
 
-        /*
-        function collapse() {
-            clearInterval(skipInteral);
-            skip.style.display = 'none';
-            skip.removeEventListener('click', onSkipAdsHandler);
-            video.removeEventListener('ended', onVideoEndedHandler);
-
-            var preState = state;
-
-            state = 0;
-            video.pause();
-
-            var ratio = 10 * preState;
-            var width = 160 * preState;
-            var height = 90 * preState;
-
-            var interval = setInterval(function(evt) {
-                ratio -= 1;
-                    
-                container.style.width = width * ratio/(10 * preState) + 'px';
-                container.style.height = height * ratio/(10 * preState) + 'px';
-
-                if (ratio <= 0) {
-                    clearInterval(interval);
-                    wrapper.style.marginLeft = '-160px';
-                    container.style.width = '160px';
-                    container.style.height = '90px';
-                    ex.src = objImage.expand;
-                }
-
-            }, 17);
-        }
-        */
         function expandToSmall() {
             state = 1;
 
@@ -297,7 +234,7 @@ Voola.VideoInPage = function(objVAST, objImage) {
                     clearInterval(interval);      
                     //ex.addEventListener('click', onClickEXHandler); 
 
-                    //bottom.addEventListener('click', onClickBanerHandler);             
+                    bottom.addEventListener('click', onClickBanerHandler);             
                 }
             }, 17); 
 
@@ -325,105 +262,8 @@ Voola.VideoInPage = function(objVAST, objImage) {
             }, 17); 
 
             video.addEventListener('ended', onVideoEndedHandler);
-            //tracking(objVAST.resume);
-            video.play();
-        }
-
-        /*
-        function expandToMedium() {
-            window.removeEventListener('scroll', onScrollHandler);
-            state = 1;
-
-            var marginLeft = -160;
-            var interval = setInterval(function(evt) {
-                marginLeft += 5;
-                marginLeft = marginLeft >= 0 ? 0 : marginLeft;
-                wrapper.style.marginLeft = marginLeft + 'px';
-
-                if (marginLeft >= 0) {
-                    clearInterval(interval);      
-                    ex.addEventListener('click', onClickEXHandler);              
-                }
-            }, 17); 
-
-            video.addEventListener('ended', onVideoEndedHandler);
             tracking(objVAST.resume);
             video.play();
-        }
-
-        function collapseToMedium() {
-            state = 1;
-
-            var ratio = 20;
-            var width = 320;
-            var height = 180;
-
-            var interval = setInterval(function(evt) {
-                ratio -= 1;
-                    
-                container.style.width = width * ratio/20 + 'px';
-                container.style.height = height * ratio/20 + 'px';
-
-                if (ratio <= 10) {
-                    clearInterval(interval);
-                    ex.src = objImage.expand;
-                }
-
-            }, 17);
-        }
-
-        function expandToLarge() {
-            state = 2;
-            video.currentTime = 0;
-            video.pause();
-
-            var ratio = 1;
-            var width = 160;
-            var height = 90;
-
-            var interval = setInterval(function(evt) {
-                ratio += 0.1;
-                
-                container.style.width = width * ratio + 'px';
-                container.style.height = height * ratio + 'px';
-
-                if (ratio >= 2) {
-                    clearInterval(interval);
-                    ex.src = objImage.close;
-                }
-            }, 17);
-
-            video.addEventListener('ended', onVideoEndedHandler);
-            //tracking(objVAST.resume);
-            video.play();
-
-            if (!isRunSkip) {
-                isRunSkip = true;
-                runSkip();
-            }
-        }
-
-        function runSkip() {
-            skip.style.display = 'block';
-            
-            skipTime = 5;
-            skip.innerHTML = 'Skip Ads After ' + skipTime + 's';
-
-            skipInteral = setInterval(function() {
-                skipTime --;
-                skip.innerHTML = 'Skip Ads After ' + skipTime + 's';
-
-                if (skipTime == 0) {
-                    clearInterval(skipInteral);
-                    skip.innerHTML = 'Skip Ads';
-                    skip.addEventListener('click', onSkipAdsHandler);
-                }
-            }, 1000);
-
-        };
-
-        function onSkipAdsHandler(evt) {
-            collapse();
         }
 
         function tracking(url) {
@@ -431,6 +271,5 @@ Voola.VideoInPage = function(objVAST, objImage) {
             xhttp.open("GET", url, true);
             xhttp.send();
         }
-        */
     };
 };

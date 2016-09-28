@@ -51,8 +51,8 @@ function loadVAST(url) {
         };
 
         var objImage = {
-            banner: 'images/banner.jpg', 
-            expand: 'images/expand.png',
+            banner: 'images/banner.png', 
+            title: 'images/title.png',
             close: 'images/close.png',
             mute: 'images/mute.png',
             unmute: 'images/unmute.png'
