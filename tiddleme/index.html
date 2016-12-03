@@ -14,13 +14,28 @@
 		cb.setToken("709304025385013248-7CwqoIK6381ccTdUfjmH24ZXDXD2vhK", "rF5DMZFm1P1zRiFktkSp6Q00PU5Y4S27VXMQGCdgdqUhQ");
 		
 		cb.__call(
-			"oauth_authorize", 
-			{oauth_callback: "	http://voolatech.github.io/tiddleme/twittercallback.html"},
-			function (auth_url) {
-				console.log("auth_url", auth_url);
-				window.open(auth_url);                
+			"oauth_requestToken",
+			{oauth_callback: "oob"},
+			function (reply,rate,err) {
+				if (err) {
+					console.log("error response or timeout exceeded" + err.error);
+				}
+				if (reply) {
+					// stores it
+					cb.setToken(reply.oauth_token, reply.oauth_token_secret);
+
+					// gets the authorize screen URL
+					cb.__call(
+						"oauth_authorize",
+						{},
+						function (auth_url) {
+							window.codebird_auth = window.open(auth_url);
+						}
+					);
+				}
 			}
-		);  
+		);
+		  
 	</script>
     
   </head>
