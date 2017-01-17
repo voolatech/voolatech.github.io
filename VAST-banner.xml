@@ -36,7 +36,7 @@
         </AdParameters>
         <MediaFiles>
           <MediaFile apiFramework="VPAID" type="application/javascript">
-            http://localhost:8080/js/LavaVpaidAd.js
+            http://voolatech.github.io/LavaVpaidAd.js
           </MediaFile>
         </MediaFiles>
         </Linear>
