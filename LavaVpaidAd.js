@@ -90,7 +90,7 @@ LavaVpaidAd.prototype.renderSlot_ = function(url) {
   iframe.contentWindow.addEventListener("message", receiveMessage, false);
 
   function receiveMessage(evt) {
-    if (evt.origin !== "http://cuongtran3001.github.io")
+    if (evt.origin !== "http://voolatech.github.io")
       return;
 
     //if (evt.origin !== "http://localhost:8080")
