@@ -62,7 +62,6 @@ LavaVpaidAd.prototype.initAd = function(
   this.renderSlot_(url);
 };
 
-
 /**
  * Populates the inner html of the slot.
  * @private
@@ -87,14 +86,12 @@ LavaVpaidAd.prototype.renderSlot_ = function(url) {
   this.slot_.appendChild(iframe);
 
   var that = this;
-  iframe.contentWindow.addEventListener("message", receiveMessage, false);
-
+  window.addEventListener("message", receiveMessage, false);
+  
   function receiveMessage(evt) {
-    if (evt.origin !== "http://voolatech.github.io")
+    
+   if (evt.origin !== "http://cuongtran3001.github.io")
       return;
-
-    //if (evt.origin !== "http://localhost:8080")
-    //  return;
 
     var data = JSON.parse(evt.data);
     var eventName = data.eventName;

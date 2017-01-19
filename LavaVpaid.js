@@ -6,10 +6,8 @@ LavaVpaid.prototype.configure = function(options) {
 	console.log('configure');
 }
 
-LavaVpaid.prototype.call = function(eventName, ...params) {
-	window.postMessage('{"eventName" : "' + eventName+ '", "params": "' + params.toString() + '"}', "http://voolatech.github.io/");
-	//window.postMessage('{"eventName" : "' + eventName+ '", "params": "' + params.toString() + '"}', "http://libs.lavanetwork.net");
-
+LavaVpaid.prototype.call = function(eventName, ...params) {  
+  window.parent.postMessage('{"eventName" : "' + eventName+ '", "params": "' + params.toString() + '"}', "*");
 }
 
 window.LAVA = {};
