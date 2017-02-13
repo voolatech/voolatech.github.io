@@ -31,12 +31,12 @@
         </VideoClicks>
         <AdParameters>
         <![CDATA[
-        {"url" : "http://github.io/voolatech.github.io/banner/vpaid/banner/vpaid-sovid-banner/index.html"}
+        {"url" : "http://voolatech.github.io/banner/vpaid/banner/vpaid-sovid-banner/index.html"}
         ]]>
         </AdParameters>
         <MediaFiles>
           <MediaFile apiFramework="VPAID" type="application/javascript">
-           http://github.io/voolatech.github.io/banner/vpaid/js/LavaVpaidAd.js
+           http:/voolatech.github.io/banner/vpaid/js/LavaVpaidAd.js
           </MediaFile>
         </MediaFiles>
         </Linear>
