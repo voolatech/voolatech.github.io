@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<!-- Sizmek Html5 VPAID Template v.1.0 -->
+
+<html>
+    <head>
+        
+    </head>
+    <body style="margin: 0;">
+    	<div  style="width: 578px; height: 368px; border: 1px solid black;">
+    		<video id="videoBanner" width="578" height="368" autoplay>
+                <source src="http://localhost:8080/videos/ad.mp4" type="video/mp4">
+            </video>
+
+            <div id="skip" style="width: 100px; height: 28px; background-color: white; position: absolute; cursor: pointer; bottom: 15px; right: 5px;">
+              <p style="width: 100%; text-align: center; position: absolute; top: -10px; color: black;">Skip now</p>
+            </div>
+                
+            <p id="guide" style="position: absolute; text-align: center; left: 5px; bottom:2px; background-color: white;"></p>
+          
+    	</div>
+    
+        <script type="text/javascript" src="http://localhost:8080/js/LavaVpaid.js"></script>
+        <script type="text/javascript" src="http://localhost:8080/js/LavaVpaidPlayer.js"></script>
+        
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>

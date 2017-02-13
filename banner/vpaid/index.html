@@ -1,0 +1,353 @@
+
+<!doctype html>
+<html>
+<head>
+  <title>JW Player Ad Tester</title>
+  <link rel="icon" type="image/x-icon" href="//www.jwplayer.com/wp-content/themes/jwplayer-105/favicon.ico">
+  <link type="text/css" rel="stylesheet" href="css/reset.css">
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <script src="http://content.jwplatform.com/libraries/V6NfEzT7.js"></script>
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+  <script src="//apis.google.com/js/client.js"></script>
+  <script type='text/javascript'>
+    function makeShort() {
+        var longUrl=document.getElementById("longurl").value;
+        var request = gapi.client.urlshortener.url.insert({
+          'resource': {
+          'longUrl': longUrl
+        }
+        });
+        request.execute(function(response){
+            if(response.id != null){
+                str ="";
+                str +="<b>Short URL:</b> <a href='"+response.id+"'>"+response.id+"</a><br>";
+                document.getElementById("output").innerHTML = str;
+            }else{
+            }
+        });
+     }
+    function load(){
+        //gapi.client.setApiKey('AIzaSyCCd7R6tUAGAwFNlq0hV_C7GWNEZNhzxa4');
+        //gapi.client.load('urlshortener', 'v1',function(){document.getElementById("output").innerHTML="";});
+    }
+    window.onload = load;
+    $(document).ready(function(){
+    var theSchedule = { myAds: { offset: theOffset, tag: theTag } };
+        $.extend({
+            initialize: function(){
+                window.top.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function(){
+                    if (arguments[1] == 'config'){
+                        $("#setupOptions").val(decodeURIComponent(arguments[2]));
+                    }
+                });
+            },
+            setupPlayer: function(){
+                var defaults = {
+                    file: theVideo,
+                    image: "http://content.jwplatform.com/thumbs/Wf8BfcSt-640.jpg",
+                    width: '580',
+                    height: '370',
+                    primary: '' + thePrimary + '',
+                    advertising: {
+                        client: theClient,
+                        schedule: theSchedule
+                    }
+                };
+                var optionText = $("#setupOptions").val();
+                var evalOptions;
+                try {
+                    evalOptions = optionText ? eval('(' + optionText + ')') : undefined;
+                } catch (e) {
+                    optionText = decodeURIComponent(optionText);
+                    evalOptions = optionText ? eval('(' + optionText + ')') : undefined;
+                    $("#setupOptions").val(optionText);
+                }
+                if (optionText && typeof (evalOptions) == "undefined"){
+                    return;
+                }
+                var options = $.extend({}, defaults, evalOptions);
+                jwplayer('my-video').setup(options);
+            },
+            setupForm: function(){
+                for (var i in $_GET){
+                    if ($_GET[i]){
+                        $("#flashvars").text($("#flashvars").text() + i + "=" + $_GET[i] + "\n");
+                    }
+                }
+            }
+        });
+        $("#theForm2").click(function(){
+            var url = window.top.location.pathname + "?config=";
+            url += encodeURIComponent($("#setupOptions").val());
+            window.top.location.href = url;
+            return false;
+        });
+
+        $("#vast-example").change(function(evt){
+          var option = $(this).find(':selected')[0];
+          $('#theTag').val($(option).val());
+
+        });
+
+
+        var $_GET = {};
+        $.initialize();
+        $.setupPlayer();
+        $.setupForm();
+        var optionText = $("#setupOptions").val();
+        optionText = optionText.toString();
+        optionText = optionText.replace(/",/g, '",<br />')
+        optionText = optionText.replace(/{/g, "{<br />")
+        optionText = optionText.replace(/}/g, "}<br />")
+        if(document.getElementById("setupOptions").value != ""){
+            document.getElementById('theCode').innerHTML = 'ENTER JS PLAYER URL HERE <br /><br />&lt;div id=&quot;my-video&quot;&gt;&lt;/div&gt;<br />&lt;script type=&quot;text/javascript&quot;&gt;<br />jwplayer("my-video").setup(' + optionText + ');<br />&lt;/script&gt;';
+        }
+        setElement2("impression","(no ad impression yet)");
+        setElement2("progress","(no ad progress yet)");
+        setElement2("click","(no ad click yet)");
+      setElement2("skip","(no ad skip yet)");
+        setElement2("complete","(no ad complete yet)");
+        setElement2("anError","(no ad error yet)");
+        var playing = 0;
+        jwplayer().onBeforePlay(function (){
+            if (playing == 0){
+                playing = 1;
+            }
+        });
+        function setElement2(element,message){
+          var div = document.getElementById(element);
+          div.innerHTML = message;
+          div.style.color = "#000";
+        }
+        function setElement(element,message){
+          var div = document.getElementById(element);
+          div.innerHTML = message;
+          div.style.color = "#090";
+        }
+        jwplayer().onAdImpression(function(event){
+          setElement("impression","The ad impression was fired.");
+        });
+        jwplayer().onAdTime(function(event){
+          var remaining = Math.round(event.duration-event.position);
+          setElement("progress","The ad completes in "+remaining+" seconds.");
+        });
+        jwplayer().onAdClick(function(event){
+          setElement("click","The user clicked the ad.");
+        });
+      jwplayer().onAdSkipped(function(event){
+        setElement("skip","The ad was skipped.");
+      });
+        jwplayer().onAdComplete(function(event){
+          setElement("complete","The ad was completely watched.");
+        });
+        jwplayer().onAdError(function(event){
+          setElement("anError","There was an ad error.");
+        });
+    });
+    var theClient = 'vast';
+    var theTag = 'http://www.adotube.com/php/services/player/OMLService.php?avpid=oRYYzvQ&platform_version=vast20&ad_type=linear&groupbypass=1&HTTP_REFERER=http://www.longtailvideo.com&video_identifier=longtailvideo.com,test';
+    var theVideo = 'http://github.io/voolatech.github.io/banner/vpaid/videos/video.mp4';
+    var theOffset = 'pre';
+    var thePrimary = 'flash';
+    var isVmap = false;
+    function changeVast(){
+        theClient = 'vast';
+    }
+    function changeIma(){
+        theClient = 'googima';
+    }
+    function changePre(){
+        theOffset = 'pre';
+        isVmap = false;
+    }
+    function changeMid(){
+        theOffset = '15';
+        isVmap = false;
+    }
+    function changePost(){
+        theOffset = 'post';
+        isVmap = false;
+    }
+    function changeVmap(){
+        isVmap = true;
+    }
+    function changeFlash(){
+        thePrimary = 'flash'
+    }
+    function changeHtml5(){
+        thePrimary = 'html5'
+    }
+    function loadAds(){
+    theTag = document.getElementById('theTag').value;
+    setElement2("impression","(no ad impression yet)");
+    setElement2("progress","(no ad progress yet)");
+    setElement2("click","(no ad click yet)");
+    setElement2("skip","(no ad skip yet)");
+    setElement2("complete","(no ad complete yet)");
+    setElement2("anError","(no ad error yet)");
+    if(isVmap == true){
+        theSchedule = theTag;
+    } else {
+        theSchedule = { myAds: { offset: theOffset, tag: theTag } };
+    }
+    var thePlayer = jwplayer('my-video').setup({
+    file: theVideo,
+    image: "http://content.jwplatform.com/thumbs/Wf8BfcSt-640.jpg",
+    width: '580',
+    height: '370',
+    primary: ''+thePrimary+'',
+    autostart: true,
+    advertising: {
+          client: theClient,
+          schedule: theSchedule
+        }
+    });
+    var thePlayer2 = '{file: "'+theVideo+'",image: "http://content.jwplatform.com/thumbs/Wf8BfcSt-640.jpg",width: "580",height: "370",primary: "'+thePrimary+'",advertising: {client: "'+theClient+'",schedule: '+JSON.stringify(theSchedule)+'}}'
+    document.getElementById("setupOptions").value = thePlayer2;
+    var playing = 0;
+    jwplayer().onBeforePlay(function (){
+        if (playing == 0){
+            playing = 1;
+        }
+    });
+    function setElement2(element,message){
+      var div = document.getElementById(element);
+      div.innerHTML = message;
+      div.style.color = "#000";
+    }
+    function setElement(element,message){
+      var div = document.getElementById(element);
+      div.innerHTML = message;
+      div.style.color = "#090";
+    }
+    jwplayer().onAdImpression(function(event){
+      setElement("impression","The ad impression was fired.");
+    });
+    jwplayer().onAdTime(function(event){
+      var remaining = Math.round(event.duration-event.position);
+      setElement("progress","The ad completes in "+remaining+" seconds.");
+    });
+    jwplayer().onAdClick(function(event){
+      setElement("click","The user clicked the ad.");
+    });
+    jwplayer().onAdComplete(function(event){
+      setElement("complete","The ad was completely watched.");
+    });
+    jwplayer().onAdError(function(event){
+      setElement("anError","There was an ad error.");
+    });
+    jwplayer().onAdSkipped(function(event){
+        setElement("skip","The ad was skipped.");
+      });
+    document.getElementById('theCode').innerHTML = 'ENTER PLAYER  JS URL HERE<br />&lt;script&gt;jwplayer.key=&quot;INSERT_YOUR_KEY_HERE&quot;&lt;/script&gt;<br /><br />&lt;div id=&quot;my-video&quot;&gt;&lt;/div&gt;<br />&lt;script type=&quot;text/javascript&quot;&gt;<br />jwplayer("my-video").setup({<br /> file: "'+theVideo+'",<br /> image: "http://content.jwplatform.com/thumbs/Wf8BfcSt-640.jpg",<br /> width: "580",<br /> height: "370",<br /> primary: "'+thePrimary+'",<br /> advertising: { <br />  client: "'+theClient+'",<br />  schedule: '+JSON.stringify(theSchedule)+'<br />  }<br />});<br />&lt;/script&gt;'
+    }
+    function validateRadio (radios){
+        for (i = 0; i < radios.length; ++ i){
+            if (radios [i].checked) return true;
+        }
+        return false;
+    }
+    function validateForm(){
+        if(validateRadio (document.forms["form1"]["client"]) && validateRadio (document.forms["form2"]["position"]) && validateRadio (document.forms["form3"]["rendering"])){
+            loadAds();
+            document.getElementById('error').innerHTML = "";
+        } else {
+            document.getElementById('error').innerHTML = "Error - Please Select all Options First.";
+            return false;
+        }
+    }
+  </script>
+</head>
+<body class="demo_page">
+
+<section id="demo_test">
+  <div class="section_wrapper clearfix">
+    <div class="demo_sidebar">
+      <h1>JW Player Ad Tester</h1>
+      <form id="form3" onsubmit="return false;">
+        <h2>Player Rendering Mode</h2>      
+        <p>
+          <input type="radio" name="rendering" id="radio1" class="theRadio" autocomplete="off" value="flash" onclick="changeFlash();" disabled>
+          <label for="radio1" class="theLabel firstLabel">Flash</label>
+          <input type="radio" name="rendering" id="radio2" class="theRadio" autocomplete="off" checked value="html5" onclick="changeHtml5();">
+          <label for="radio2" class="theLabel secondLabel">HTML5</label>
+        </p>
+      </form>
+      <form id="form1" onsubmit="return false;">
+        <h2>Ad Client</h2>
+        <p>
+          <input type="radio" name="client" id="radio3" class="theRadio" autocomplete="off" checked value="vast" onclick="changeVast();">
+          <label for="radio3" class="theLabel firstLabel">VAST</label>
+          <input type="radio" name="client" id="radio4" class="theRadio" autocomplete="off" value="googima" onclick="changeIma();" disabled>
+          <label for="radio4" class="theLabel secondLabel">Google IMA</label>
+        </p>
+      </form>       
+      <form id="form2" onsubmit="return false;">
+        <h2>Ad Position</h2>
+        <p>
+          <input type="radio" name="position" id="radio5" class="theRadio" autocomplete="off" checked value="pre" onclick="changePre();">
+          <label for="radio5" class="theLabel firstLabel">Pre-Roll</label>
+          <input type="radio" name="position" id="radio6" class="theRadio" autocomplete="off" value="15" onclick="changeMid();" disabled>
+          <label for="radio6" class="theLabel secondLabel">Mid-Roll (15 Seconds)</label>
+          <input type="radio" name="position" id="radio7" class="theRadio" autocomplete="off" value="post" onclick="changePost();" disabled>
+          <label for="radio7" class="theLabel">Post-Roll</label>      
+          <input type="radio" name="position" id="radio8" class="theRadio" autocomplete="off" value="post" onclick="changeVmap();" disabled>
+          <label for="radio8" class="theLabel">VMAP</label>
+        </p>
+      </form>      
+      <form onsubmit="return false;">
+        <h2>VAST link:</h2>
+        <p>
+          <input type="text" id="theTag" autocomplete="off" value="http://github.io/voolatech.github.io/banner/vpaid/xml/VAST-sovid.xml">
+          <input type="button" name="load" value="Load Ad" class="small primary button" onclick="validateForm();"> 
+        </p>
+        <h2>Choose example VAST link:</h2>
+        <select id="vast-example">
+          <option value="http://github.io/voolatech.github.io/banner/vpaid/xml/VAST-sovid.xml" selected>http://github.io/voolatech.github.io/banner/vpaid/xml/VAST-sovid.xml</option>
+          <option value="http://github.io/voolatech.github.io/banner/vpaid/xml/VAST-api.xml">http://github.io/voolatech.github.io/banner/vpaid/xml/VAST-api.xml</option>
+          <option value="http://github.io/voolatech.github.io/banner/vpaid/xml/VAST-banner.xml">http://github.io/voolatech.github.io/banner/vpaid/xml/VAST-banner.xml</option>
+          <option value="http://github.io/voolatech.github.io/banner/vpaid/xml/VAST-video.xml">http://github.io/voolatech.github.io/banner/vpaid/xml/VAST-video.xml</option>
+      </select>
+      </form>    
+      <form id="theForm2" name="theForm2">
+        <fieldset style="display:none;">
+          <textarea id="setupOptions" style="display:none;"></textarea>
+        </fieldset>  
+        <input type="button" value="Setup Player" onclick="$.setupPlayer()" style="display:none;">
+      </form>  
+      <div id="events">
+        <h2>Ad Events:</h2>
+        <ol>
+          <li id="impression">(no ad impression yet)</li>
+          <li id="progress">(no ad progress yet)</li>
+          <li id="click">(no ad click yet)</li>
+          <li id="skip">(no ad skip yet)</li>
+          <li id="complete">(no ad complete yet)</li>
+          <li id="anError">(no ad error yet)</li>
+        </ol>
+      </div>
+<div id="theLink"></div> 
+    </div> <!-- demo_sidebar -->
+    <div class="demo_main">
+      <div id='my-video'></div>   
+      <div id="error"></div>  
+      <h2 id="title">Player Embed code:</h2>
+      <script type="text/javascript">
+        function selectText(containerid){
+          if (document.selection){
+            var range = document.body.createTextRange();
+            range.moveToElementText(document.getElementById(containerid));
+            range.select();
+          } else if (window.getSelection){
+            var range = document.createRange();
+            range.selectNode(document.getElementById(containerid));
+            window.getSelection().addRange(range);
+          }
+        }
+      </script>
+<pre id="theCode" onclick="selectText('theCode')">Embed Code will be displayed here.</pre>
+    </div> <!-- demo_main -->
+  </div> <!-- section_wrapper -->
+</section> <!-- demo_test -->
+</body>
+</html>
