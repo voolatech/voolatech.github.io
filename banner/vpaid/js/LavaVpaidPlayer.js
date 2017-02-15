@@ -18,17 +18,21 @@ LavaVpaidPlayer.prototype.connect = function(video, VPAID) {
   this.video = video;
   this.VPAID = VPAID;
 
-  this.video.addEventListener('loadedmetadata', onLoadedMetaData);
+  //this.video.addEventListener('loadedmetadata', onLoadedMetaData);
   this.video.addEventListener('timeupdate', onTimeUpdate);
 
   var that = this;
 
-  function onLoadedMetaData(evt) {
-    that.autoTime = that.videoTime = Math.ceil(that.video.duration);
+  //function onLoadedMetaData(evt) {
+  //  that.autoTime = that.videoTime = Math.ceil(that.video.duration);
     //startAuto();
-  };
+  //};
 
   function onTimeUpdate(evt) {
+    if (that.autoTime == 0 && that.video.duration) {
+        that.autoTime = that.videoTime = Math.ceil(that.video.duration);
+    }
+    
     var is25 = checkPercent(that.video.currentTime, that.videoTime, that.percent25);
     var is50 = checkPercent(that.video.currentTime, that.videoTime, that.percent50);
     var is75 = checkPercent(that.video.currentTime, that.videoTime, that.percent75);
