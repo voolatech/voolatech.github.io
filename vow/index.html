@@ -3,6 +3,7 @@
 <head>
  <script src="https://code.createjs.com/easeljs-0.8.0.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenLite.min.js"></script>
+ <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
 </head>
 <body>
 
@@ -34,7 +35,7 @@ Your browser does not support the HTML5 canvas tag.</canvas>
 
 <p>Video clip result(not include audio):</p>
 <video id="video2" controls width="480" height="270" autoplay style="border:1px solid #d3d3d3;">
-  <source src="" type='video/mp4'>
+  
 </video>
 
 <script>
@@ -51,6 +52,10 @@ video1.addEventListener( "loadedmetadata", function (evt) {
 var video2 = document.getElementById('video2')
 var canvas = document.getElementById("myCanvas");
 
+var recorder = RecordRTC(canvas, {
+  type: 'canvas'
+});
+
 var text = document.getElementById('text');
 var startBtn = document.getElementById('start');
 
@@ -59,15 +64,6 @@ selectSize.addEventListener('change', onChangeVideoSizeHandler);
 
 var cjsText;
 var bitmap;
-
-var mediaSource = new MediaSource();
-mediaSource.addEventListener('sourceopen', handleSourceOpen, false);
-
-var mediaRecorder;
-var recordedBlobs;
-var sourceBuffer;
-
-var stream = canvas.captureStream(); 
 
 function onChangeVideoSizeHandler(evt) {
   var str = selectSize.options[selectSize.selectedIndex].value;
@@ -79,55 +75,13 @@ function onChangeVideoSizeHandler(evt) {
   video2.width = canvas.width = width;
   video2.height = canvas.height = height;
 
-  stream = canvas.captureStream(); 
-
-  stage.clear();
   initCanvas();
-}
-
-function handleSourceOpen(evt) {
-  sourceBuffer = mediaSource.addSourceBuffer('video/webm; codecs="vp8"');
-}
-
-function handleDataAvailable(evt) {
-  if (evt.data && evt.data.size > 0) {
-    recordedBlobs.push(evt.data);
-  }
-}
-
-function handleStop(evt) {
-}
-
-// The nested try blocks will be simplified when Chrome 47 moves to Stable
-function startRecording() {
-  var options = {mimeType: 'video/webm'};
-  recordedBlobs = [];
-  try {
-    mediaRecorder = new MediaRecorder(stream, options);
-  } catch (e0) {
-    try {
-      options = {mimeType: 'video/webm,codecs=vp9'};
-      mediaRecorder = new MediaRecorder(stream, options);
-    } catch (e1) {
-      try {
-        options = 'video/vp8'; // Chrome 47
-        mediaRecorder = new MediaRecorder(stream, options);
-      } catch (e2) {
-        return;
-      }
-    }
-  }
-
-  mediaRecorder.onstop = handleStop;
-  mediaRecorder.ondataavailable = handleDataAvailable;
-  mediaRecorder.start(10); // collect 100ms of data  
 }
 
 window.addEventListener('load', initCanvas);
 
 startBtn.addEventListener('click', function(evt) {
 	startVideo();
-  startRecording();
 });
 
 function startVideo() {
@@ -143,6 +97,8 @@ function startVideo() {
   TweenLite.to(cjsText, video1.duration, {x: canvas.width});
 
 	video1.play();
+
+  recorder.startRecording();
 };
 
 function initCanvas() {
@@ -172,11 +128,10 @@ function initCanvas() {
 }
 
 video1.addEventListener("ended", function() {
-	mediaRecorder.stop();
-
-  var superBuffer = new Blob(recordedBlobs, {type: 'video/webm'});
-  video2.src = window.URL.createObjectURL(superBuffer);
-
+	recorder.stopRecording(function() {
+      var blob = recorder.getBlob();
+      document.getElementById('video2').src = URL.createObjectURL(blob);
+  });
 }, false);
  
 
