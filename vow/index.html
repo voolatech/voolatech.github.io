@@ -4,6 +4,10 @@
  <script src="https://code.createjs.com/easeljs-0.8.0.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenLite.min.js"></script>
  <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
+ <script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -26,9 +30,13 @@
     <option value="640x360">640x360</option>
     <option value="720x405">720x405</option>
   </select>
-  <input id="start" type="submit" value="Click to play & record">
+  </p>
   
-</p>
+  <textarea id="data" rows="4" cols="50">{"videos": [{"url": "input/video1.mp4", "start": 0, "end": -1, "position": 5}, {"url": "input/video2.mp4", "start": 5, "end": 10, "position": 20}], "audios": [{"url": "audio1.mp3", "start": 0, "end": 10, "position" : 0}] }</textarea>
+
+  <p>
+  <input id="start" type="submit" value="Click to play & record">
+  </p>
 
 <canvas id="myCanvas" width="480" height="270" style="border:1px solid #d3d3d3; background-color: black;">
 Your browser does not support the HTML5 canvas tag.</canvas>
@@ -130,9 +138,35 @@ function initCanvas() {
 video1.addEventListener("ended", function() {
 	recorder.stopRecording(function() {
       var blob = recorder.getBlob();
-      document.getElementById('video2').src = URL.createObjectURL(blob);
+      //document.getElementById('video2').src = URL.createObjectURL(blob);
+
+      uploadToServer(blob);
   });
 }, false);
+
+function uploadToServer(blob) {
+  var fileType = 'video'; // or "audio"
+  var fileName = 'ABCDEF.webm';  // or "wav"
+
+  var formData = new FormData();
+  formData.append(fileType + '-filename', fileName);
+  formData.append(fileType + '-blob', blob);
+
+  xhr('exportVideo.php', formData, function (fName) {
+      window.open(location.href + fName);
+  });
+
+  function xhr(url, data, callback) {
+      var request = new XMLHttpRequest();
+      request.onreadystatechange = function () {
+          if (request.readyState == 4 && request.status == 200) {
+              document.getElementById('video2').src = request.responseText;
+          }
+      };
+      request.open('POST', url);
+      request.send(data);
+  }
+}
  
 
 </script>
