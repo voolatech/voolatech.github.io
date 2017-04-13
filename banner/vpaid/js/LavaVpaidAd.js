@@ -57,9 +57,10 @@ LavaVpaidAd.prototype.initAd = function(
   this.attributes_['desiredBitrate'] = desiredBitrate;
 
   var AdParameters = JSON.parse(creativeData.AdParameters);
-  var url = AdParameters && AdParameters.url ? AdParameters.url : ""
+  var url = AdParameters && AdParameters.vpaidHTMLLink ? AdParameters.vpaidHTMLLink : "";
+  var cus = AdParameters && AdParameters.vpaidCustomParametervpaidHTMLLink ? AdParameters.vpaidCustomParametervpaidHTMLLink : "";
 
-  this.renderSlot_(url);
+  this.renderSlot_(url, cus);
 };
 
 
@@ -67,7 +68,7 @@ LavaVpaidAd.prototype.initAd = function(
  * Populates the inner html of the slot.
  * @private
  */
-LavaVpaidAd.prototype.renderSlot_ = function(url) {
+LavaVpaidAd.prototype.renderSlot_ = function(url, customParameter) {
   var slotExists = this.slot_ && this.slot_.tagName === 'DIV';
   if (!slotExists) {
     this.slot_ = document.createElement('div');
@@ -81,6 +82,7 @@ LavaVpaidAd.prototype.renderSlot_ = function(url) {
   iframe.width = '100%';
   iframe.height = '100%';
   iframe.scrolling = 'no';
+  iframe.setAttribute('data-custom', customParameter);
   iframe.style.border = 'none';
   iframe.src = url;
 

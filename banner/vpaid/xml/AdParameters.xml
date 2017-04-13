@@ -1,0 +1,17 @@
+<AdParameters>	
+	<VpaidClickThrough name="default"><![CDATA[http://www.airasia.com]]></VpaidClickThrough>
+	<VpaidClickTracking name="default"><![CDATA[http://delivery1.lavanetwork.net/www/delivery/avw.php?banner_id=834&zoneid=561&amp;cb={random}&events=default]]></VpaidClickTracking>
+    <VpaidClickThrough name="extra1"><![CDATA[http://www.airasia.com]]></VpaidClickThrough>
+	<VpaidClickTracking name="extra1"><![CDATA[http://delivery1.lavanetwork.net/www/delivery/avw.php?banner_id=834&zoneid=561&amp;cb={random}&events=extra1]]></VpaidClickTracking>
+	<VpaidClickThrough name="extra2"><![CDATA[https://www.facebook.com/sharer/sharer.php?u=https%3A//www.facebook.com/htcvietnam/?fref=ts]]></VpaidClickThrough>
+	<VpaidClickTracking name="extra2"><![CDATA[http://delivery1.lavanetwork.net/www/delivery/avw.php?banner_id=834&zoneid=561&amp;cb={random}&events=extra2]]></VpaidClickTracking>
+    <VpaidClickThrough name="extra3"><![CDATA[https://plus.google.com/share?url=https%3A//plus.google.com/%2BHTC]]></VpaidClickThrough>
+	<VpaidClickTracking name="extra3"><![CDATA[http://delivery1.lavanetwork.net/www/delivery/avw.php?banner_id=834&zoneid=561&amp;cb={random}&events=extra3]]></VpaidClickTracking>
+    <VpaidClickThrough name="extra4"><![CDATA[https://www.youtube.com/watch?v=N4ncNBBx708]]></VpaidClickThrough>
+	<VpaidClickTracking name="extra4"><![CDATA[http://delivery1.lavanetwork.net/www/delivery/avw.php?banner_id=834&zoneid=561&amp;cb={random}&events=extra4]]></VpaidClickTracking>
+    <VpaidClickThrough name="extra5"><![CDATA[mailto:phamtuanbang@gmail.com?&subject=HTC_Eye_Form&body=Test]]></VpaidClickThrough>
+	<VpaidClickTracking name="extra5"><![CDATA[http://delivery1.lavanetwork.net/www/delivery/avw.php?banner_id=834&zoneid=561&amp;cb={random}&events=extra5]]></VpaidClickTracking>
+	<VpaidPath><![CDATA[https://libs.lavadigital.vn]]></VpaidPath>
+	<VpaidDuration><![CDATA[00:00:15]]></VpaidDuration>
+	<VpaidId><![CDATA[a610130b847515155601fadd95654d91]]></VpaidId>
+</AdParameters>

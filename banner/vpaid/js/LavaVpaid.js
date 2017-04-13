@@ -35,7 +35,6 @@ LavaVpaid.Event = {
 };
 
 LavaVpaid.prototype.configure = function(options) {
-	console.log('configure');
 }
 
 LavaVpaid.prototype.startAd = function() {
