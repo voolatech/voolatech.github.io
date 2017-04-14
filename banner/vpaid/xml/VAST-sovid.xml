@@ -31,17 +31,17 @@
         </VideoClicks>
         <AdParameters>
 <![CDATA[
-{"skipoffset":"5","zIndex":"","vpaidPath":"http://libs.lavanetwork.net/","vpaidFileName":"VpaidCallbackAd.js","adDuration":"00:00:15","vpaidHTMLLink":"http://localhost:3001/voolatech.github.io/banner/vpaid/banner/vpaid-sovid-banner/index.html","vpaidCustomParametervpaidHTMLLink":"http://localhost:3001/voolatech.github.io/banner/vpaid/xml/AdParameters.xml"}
+{"skipoffset":"5","zIndex":"","vpaidPath":"http://libs.lavanetwork.net/","vpaidFileName":"VpaidCallbackAd.js","adDuration":"00:00:15","vpaidHTMLLink":"http://voolatech.github.io/banner/vpaid/banner/vpaid-sovid-banner/index.html","vpaidCustomParametervpaidHTMLLink":"http://voolatech.github.io/banner/vpaid/xml/AdParameters.xml"}
 ]]>
 </AdParameters>
 <AdParameters>
         <![CDATA[
-        {"url" : "http://localhost:3001/voolatech.github.io/banner/vpaid/banner/vpaid-sovid-banner/index.html"}
+        {"url" : "http://voolatech.github.io/banner/vpaid/banner/vpaid-sovid-banner/index.html"}
         ]]>
         </AdParameters>
         <MediaFiles>
           <MediaFile apiFramework="VPAID" type="application/javascript">
-           http://localhost:3001/voolatech.github.io/banner/vpaid/js/LavaVpaidAd.js
+           http://voolatech.github.io/banner/vpaid/js/LavaVpaidAd.js
           </MediaFile>
         </MediaFiles>
         </Linear>
