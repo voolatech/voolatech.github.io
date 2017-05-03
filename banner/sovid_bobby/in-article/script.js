@@ -28,7 +28,7 @@ function onLoadHandler(evt) {
 
   var bg = document.getElementById('bg').style.display = 'none';
   var guide = document.getElementById('guide').style.display = 'none';
-  var wrapperVideo = document.getElementById('responsive-video').style.paddingBottom = height + 'px';
+  var wrapperVideo = document.getElementsByClassName('responsive-video')[0].style.paddingBottom = height + 'px';
   var header = document.getElementById('header');
   header.addEventListener('click', onClickAdsHandler);
 
