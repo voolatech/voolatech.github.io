@@ -37,6 +37,7 @@ function onLoadHandler(evt) {
   startAuto();
 
   loadCustomParameters(window.frameElement.getAttribute('data-custom'));
+  // loadCustomParameters();
 }
 
 
@@ -97,7 +98,7 @@ function getGuideTextByTime(time) {
 
 function onTimeUpdateHandler(evt) {
   
-  guide.innerHTML = getGuideTextByTime(Math.ceil(video.duration - video.currentTime));
+  // guide.innerHTML = getGuideTextByTime(Math.ceil(video.duration - video.currentTime));
 }
 
 function startAuto() {

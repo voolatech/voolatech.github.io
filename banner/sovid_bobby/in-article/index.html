@@ -111,11 +111,24 @@
             .the-sharing-placement li a{
               -webkit-transition:all .3s linear;transition:all .3s linear;
             }
+            .wrapper{
+              max-width: 720px;
+              height: 415px;
+              border: 0 solid black;
+              position:relative;
+              overflow: hidden;
+            }
+            @media (max-width: 700px) {
+              .wrapper{
+                /*width: 720px;*/
+                height: 360px;
+              }
+            }
         </style>
     </head>
     <body style="margin: 0;">
-    	<div  style="width: 720px; height: 415px; border: 0 solid black; position:relative; overflow: hidden">
-    		    <video id="videoBanner" width="" height="" style="background-color: #fff;position: absolute;top: -5px;left: -10px;right: -10px;bottom: -5px;min-width: 100%;min-height: 101%;">
+    	<div class="wrapper">
+    		    <video id="videoBanner" width="" height="" style="background-color: #fff;position: absolute;top: -5px;left: -10px;right: -10px;bottom: -5px;min-width: 104%;">
                 <source src="BB_Tape_Be_mat_3D_kho_thoang_30s_Aug16_converted.mp4" type="video/mp4">
             </video>
 
@@ -124,7 +137,7 @@
             </div>
             <!-- <div id="title" class="animated pulse" style="position: absolute; top: 80px; left:0;"><img src="title.png" style=""></div> -->
             <!--<div id="product" style="position: absolute; bottom: 20px; right:5px;"><img src="product.png" style=""></div>-->
-            <div id="header" class="animated slideInDown" style="position: absolute; left: 0; top: 0; right: 0; height: 98px;">
+            <div id="header" class="animated slideInDown" style="position: absolute; left: 0; top: 0; right: 0;">
                 <img src="header.png" style="width: 100%;">
             </div>
 
@@ -134,7 +147,7 @@
 
             </div>
             <p id="skip" style="display: none; position: absolute; text-align: right; right: 0; padding: 0; margin: 0; top:0px; cursor: pointer;"><img src="close.png" style="margin: auto; " alt="" /></p>
-            <ul style="list-style: none; position: absolute; top: 125px; left: 0;" class="animated slideInLeft the-sharing-placement">
+            <ul style="list-style: none; position: absolute; top:50%; margin-top: -72px; left: 0;" class="animated slideInLeft the-sharing-placement">
                <li class="btnFacebook"><a id="extra2" href="#" target="_blank"><span class="ti-facebook"></span></a></li>
                <li class="btnGoogle"><a id="extra3" href="#" target="_blank"><span class="ti-google"></a></li>
                <li class="btnYoutube"><a id="extra4" href="#" target="_blank"><span class="ti-youtube"></span></a></li>
