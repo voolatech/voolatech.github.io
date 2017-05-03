@@ -4,6 +4,9 @@ var VPAID;
 var player;
 var video;
 var guide;
+var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
 
 window.addEventListener('load', onLoadHandler);
 
@@ -14,11 +17,10 @@ function onLoadHandler(evt) {
   VPAID.configure();
 
   guide = document.getElementById('guide');
-  
   video = document.getElementById("videoBanner");
   video.addEventListener('timeupdate', onTimeUpdateHandler);
   video.addEventListener('click', onClickAdsHandler);
-
+  
   player = new LAVA.VPaidPlayer();
   player.connect(video, VPAID);
 
@@ -26,6 +28,7 @@ function onLoadHandler(evt) {
 
   var bg = document.getElementById('bg').style.display = 'none';
   var guide = document.getElementById('guide').style.display = 'none';
+  var wrapperVideo = document.getElementById('responsive-video').style.paddingBottom = height + 'px';
   var header = document.getElementById('header');
   header.addEventListener('click', onClickAdsHandler);
 
@@ -37,6 +40,8 @@ function onLoadHandler(evt) {
   startAuto();
 
   loadCustomParameters(window.frameElement.getAttribute('data-custom'));
+
+
   // loadCustomParameters();
 }
 
