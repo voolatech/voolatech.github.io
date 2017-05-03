@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>Diana</title>
+    <meta name="ad.size" content="width=100,height=250">
+    <style>
+      body{
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+      }
+      #banner{
+        border: 1px solid #000;
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+        width: 100px;
+        height: 250px;
+      }
+      #banner div{
+        position: absolute;
+        background-repeat: no-repeat;
+        background-position: center center;
+        opacity: 0;
+      }
+      #banner #logo{
+        background-image: url(logo.png);
+        width: 61px;
+        height: 24px;
+        top: 5px;
+        left: 25px;
+      }
+      #banner #name{
+        background-image: url(name.png);
+        width: 50px;
+        height: 12px;
+        top: 32px;
+        left: 25px;
+      }
+      #banner #slogan{
+        background-image: url(slogan.png);
+        background-position: top left;
+        width: 90px;
+        height: 40px;
+        top: 60px;
+        left: 5px;
+      }
+      #banner #bgd{
+        background-image: url(bgd.jpg);
+        width: 100px;
+        height: 250px;
+        top: 0;
+        left: 0px;
+      }
+      #banner #button{
+        background-image: url(button.png);
+        width: 85px;
+        height: 24px;
+        bottom: 9px;
+        left: 7px;
+      }
+      #btn-replay{
+        background: url(close_btn.png) center center no-repeat;
+        background-size: cover;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        z-index: 2;
+        width: 20px;
+        height: 20px;
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body onload="init();">
+    <div id="banner">
+      <a id="clickTag" href="javascript:window.open(window.clickTag)" class="layer"> 
+        <div id="bgd"></div>
+        <div id="logo"></div>
+        <div id="name"></div>
+        <div id="slogan"></div>
+        <div id="button"></div>
+      </a>
+      <a id="btn-replay" onclick="replayBanner()" title="replace"></a>
+    </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+  <script>
+    var clickTag = getParameterByName("clickTAG");
+    function getParameterByName(name) {
+      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]"); var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+      results = regex.exec(location.search); return results === null ? "" :
+      decodeURIComponent(results[1].replace(/\+/g, " ")); 
+    }
+    function replayBanner() {
+      window.location.reload();
+    }
+    function init() {
+      var masterTimeline = new TimelineLite(),
+        tll = new TimelineLite(),
+        tll1 = new TimelineLite(),
+        tllReplace = new TimelineLite({onComplete: replace}),
+        img1 = document.getElementById("bgd"),
+        img2 = document.getElementById("logo"),
+        img3 = document.getElementById("name"),
+        img4 = document.getElementById("slogan"),
+        img5 = document.getElementById("button"),
+        replay  = document.getElementById("btn-replay");
+      
+      replay.onmouseover=function(){
+        tllReplace.kill({rotation: true, transformOrigin: true}).to(replay, 0.5, {rotation:360, transformOrigin:"center center", ease: Power4.easeIn});
+      };
+    
+      function replace(){
+        replay.onmouseleave=function(){
+          tllReplace.kill({rotation: true, transformOrigin: true}).to(replay, 0.5, {rotation:0, transformOrigin:"center center", ease: Power4.easeOut});
+        };
+      }
+      // Layer 3 (mask)
+    
+      tll.fromTo(img1, 0.5, {center: 0}, {center: 1, autoAlpha: 1, ease: Sine.easeIn, y: 0})
+          .fromTo(img2, 0.5, {top:-250}, {top: 5, autoAlpha: 1, ease: Sine.easeIn, y: 0})
+          .fromTo(img3, 0.5, {left: -100}, {x:'0',left: 25, autoAlpha: 1, ease: Circ.easeIn, y: 0})
+          .fromTo(img4, 0.5, {left: -100}, {x:'0',left:5, autoAlpha: 1, ease: Power0.easeNone, y: 0})
+          .from(img5,0,{opacity:1,rotation:'0', transformOrigin:'center'})
+          .to(img5,0.2,{opacity:1,rotation:'15'})
+          .to(img5,0.3,{rotation:'-10'})
+          .to(img5,0.4,{rotation:'5'})
+          .to(img5,0.5,{rotation:'-5'})
+          .to(img5,0.6,{rotation:'0'})
+          .to(replay, 0.3,{opacity:1,rotation:'0', transformOrigin:'center'});
+    }
+  </script>
+  <noscript>JavaScript is off. Please enable to view full site.</noscript>
+  </body>
+</html>

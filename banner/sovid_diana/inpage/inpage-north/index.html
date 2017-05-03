@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<!-- Sizmek Html5 VPAID Template v.1.0 -->
+
+<html>
+    <head>
+        <meta name="ad.size" content="width=300,height=250">
+        <link rel="stylesheet" type="text/css" href="http://libs.lavanetwork.net/rmp/3.0.0/sharing.css">
+        <style>
+            .animated {
+              -webkit-animation-duration: 1s;
+              animation-duration: 1s;
+              -webkit-animation-fill-mode: both;
+              animation-fill-mode: both;
+            }
+
+            .animated.infinite {
+              -webkit-animation-iteration-count: infinite;
+              animation-iteration-count: infinite;
+            }
+
+            .animated.hinge {
+              -webkit-animation-duration: 2s;
+              animation-duration: 2s;
+            }
+            @-webkit-keyframes slideInDown {
+              from {
+                -webkit-transform: translate3d(0, -100%, 0);
+                transform: translate3d(0, -100%, 0);
+                visibility: visible;
+              }
+
+              to {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+              }
+            }
+
+            @keyframes slideInDown {
+              from {
+                -webkit-transform: translate3d(0, -100%, 0);
+                transform: translate3d(0, -100%, 0);
+                visibility: visible;
+              }
+
+              to {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+              }
+            }
+
+            .slideInDown {
+              -webkit-animation-name: slideInDown;
+              animation-name: slideInDown;
+            }
+            @keyframes slideInLeft {
+              from {
+                -webkit-transform: translate3d(-100%, 0, 0);
+                transform: translate3d(-100%, 0, 0);
+                visibility: visible;
+              }
+
+              to {
+                -webkit-transform: translate3d(0, 0, 0);
+                transform: translate3d(0, 0, 0);
+              }
+            }
+
+            .slideInLeft {
+              -webkit-animation-name: slideInLeft;
+              animation-name: slideInLeft;
+            }
+            @-webkit-keyframes pulse {
+              from {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+              }
+
+              50% {
+                -webkit-transform: scale3d(1.05, 1.05, 1.05);
+                transform: scale3d(1.05, 1.05, 1.05);
+              }
+
+              to {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+              }
+            }
+
+            @keyframes pulse {
+              from {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+              }
+
+              50% {
+                -webkit-transform: scale3d(1.05, 1.05, 1.05);
+                transform: scale3d(1.05, 1.05, 1.05);
+              }
+
+              to {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+              }
+            }
+
+            .pulse {
+              -webkit-animation-name: pulse;
+              animation-name: pulse;
+            }
+            .the-sharing-placement li{
+              display:inline-block;
+              width: 30px;
+              vertical-align: middle;
+              height: 30px;
+            }
+            .the-sharing-placement li a span{
+              line-height: 30px;
+            }
+        </style>
+    </head>
+    <body style="margin: 0;">
+    	<div  style="width: 300px; height: 250px; border: 0 solid black; position:relative; overflow: hidden;">
+    		<video id="videoBanner" width="300" height="250" style="background: url(bg.jpg) center 0px no-repeat #000; position: relative; top: 0; padding-top: 7px;">
+                <source src="MPG_DIANA_SENSI_15s_North_Full_HD.mp4" type="video/mp4">
+            </video>
+
+            <div id="bg" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%;">
+                <img src="bg.jpg" style="margin: auto; height:100%;" alt="" />
+            </div>
+            <div id="title" class="animated pulse" style="position: absolute; top: 60px; left:0;"><img src="title.png" style="width: 100px;"></div>
+            <!--<div id="product" style="position: absolute; bottom: 20px; right:5px;"><img src="product.png" style=""></div>-->
+            <div id="header" class="animated slideInDown" style="position: absolute; left: 0; top: 0; right: 0; height: 50px;">
+                <img src="header.png" style="width: 100%;">
+            </div>
+
+            <div style="width: 100%; background-color: red; position: absolute; bottom: 10px; right: 1px;">
+              
+              <p id="guide" style="display: block; position: absolute; text-align: center; left: 0px; right: 0px; padding: 5px; bottom:2px; color: white;"></p>
+
+            </div>
+            <ul style="list-style: none; position: absolute; bottom: 2px; left: 10px; background: transparent none; width: 100%;" class="animated slideInLeft the-sharing-placement">
+               <li class="btnFacebook"><a id="extra2" href="#" target="_blank"><span class="ti-facebook"></span></a></li>
+               <li class="btnGoogle" ><a id="extra3" href="#" target="_blank"><span class="ti-google"></a></li>
+               <li class="btnYoutube" ><a id="extra4" href="#" target="_blank"><span class="ti-youtube"></span></a></li>
+               <li class="btnEmail" ><a id="extra5" href="#" target="_blank"><span class="ti-email"></span></a></li>
+            </ul>
+            <p id="skip" style="display: none; position: absolute; text-align: right; right: 10px; padding: 0; margin: 0; bottom:0px; cursor: pointer; z-index: 1000;"><img src="close.png" style="margin: auto; " alt="" /></p>
+    	</div>
+    
+        <script type="text/javascript" src="http://voolatech.github.io/banner/vpaid/js/LavaVpaid.js"></script>
+        <script type="text/javascript" src="http://voolatech.github.io/banner/vpaid/js/LavaVpaidPlayer.js"></script>
+        
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
