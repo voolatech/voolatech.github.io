@@ -113,25 +113,50 @@
             }
             .wrapper{
               max-width: 720px;
-              height: 415px;
+              /*height: 415px;*/
               border: 0 solid black;
               position:relative;
               overflow: hidden;
             }
+            .responsive-video{
+              position: relative;
+              display: block;
+              height: 0;
+              padding: 0;
+              padding-bottom: 56.25%;
+              overflow: hidden;
+            }
+            .responsive-video video{
+              background-color: #fff;
+              position: absolute;
+              top: -5px;
+              left: -10px;
+              right: -10px;
+              bottom: -5px;
+              min-width: 104%;
+            }
             @media (max-width: 700px) {
-              .wrapper{
-                /*width: 720px;*/
-                height: 360px;
+              .responsive-video video{
+                background-color: #fff;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                width: 100%;
+                height: 100%;
+                min-width: inherit;
               }
             }
         </style>
     </head>
     <body style="margin: 0;">
     	<div class="wrapper">
-    		    <video id="videoBanner" width="" height="" style="background-color: #fff;position: absolute;top: -5px;left: -10px;right: -10px;bottom: -5px;min-width: 104%;">
-                <source src="BB_Tape_Be_mat_3D_kho_thoang_30s_Aug16_converted.mp4" type="video/mp4">
-            </video>
-
+            <div class="responsive-video">
+      		    <video id="videoBanner" width="" height="" style="">
+                  <source src="BB_Tape_Be_mat_3D_kho_thoang_30s_Aug16_converted.mp4" type="video/mp4">
+              </video>
+            </div>
             <div id="bg" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%;">
                 <img src="bg.jpg" style="margin: auto; height:100%;" alt="" />
             </div>
